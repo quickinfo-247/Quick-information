@@ -5,50 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quick Information</title>
 
-<style>
-body{
-    font-family:Arial,sans-serif;
-    margin:0;
-    background:#f5f5f5;
-}
-header{
-    background:#0d47a1;
-    color:white;
-    text-align:center;
-    padding:20px;
-}
-.card{
-    background:white;
-    margin:15px;
-    padding:15px;
-    border-radius:10px;
-    box-shadow:0 2px 8px rgba(0,0,0,.2);
-}
-button{
-    background:#25D366;
-    color:white;
-    border:none;
-    padding:12px 20px;
-    border-radius:8px;
-    font-size:16px;
-}
-</style>
-
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
 <header>
-<h1>Quick Information</h1>
-<p>Electrical • CCTV • Solar</p>
+    <h1>Quick Information</h1>
+    <p>Electrical • CCTV • Solar • Electronics</p>
 </header>
 
-<div class="card">
-<h2>Welcome</h2>
-<p>আপনার বিশ্বস্ত ইলেকট্রিক ও CCTV দোকান।</p>
+<div class="container">
 
-<button>Order Now</button>
+<div class="card">
+<h2>🔍 Search Products</h2>
+<input type="text" placeholder="Search products..." style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
 </div>
+
+<div class="card">
+<h2>🔥 Today's Offer</h2>
+<p>Best Price on Electrical Products</p>
+<button>View Offers</button>
+</div>
+
+<div class="card">
+<h2>⚡ Popular Categories</h2>
+<ul>
+<li>💡 LED Bulbs</li>
+<li>🔌 Switch & Socket</li>
+<li>📹 CCTV Camera</li>
+<li>☀️ Solar Products</li>
+<li>🛠️ Electrical Accessories</li>
+</ul>
+</div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>

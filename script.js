@@ -62,10 +62,24 @@ function searchProducts() {
 }
 let cart = [];
 
-function addToCart(name, price) {
-    cart.push({ name, price });
+function addToCart(name, price){
+
+    cart.push({name,price});
 
     document.getElementById("cart-count").textContent = cart.length;
 
-    alert(name + " added to cart!");
+    const list=document.getElementById("cart-items");
+
+    const li=document.createElement("li");
+
+    li.textContent=name+" - ₹"+price;
+
+    list.appendChild(li);
+
+    let total=0;
+
+    cart.forEach(item=>total+=item.price);
+
+    document.getElementById("cart-total").textContent=total;
+
 }

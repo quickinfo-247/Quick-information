@@ -192,3 +192,11 @@ footer{
     z-index: 9999;
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
+.cart-bar{
+    background:#ff9800;
+    color:white;
+    text-align:center;
+    padding:12px;
+    font-size:18px;
+    font-weight:bold;
+}

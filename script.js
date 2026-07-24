@@ -83,3 +83,20 @@ function addToCart(name, price){
     document.getElementById("cart-total").textContent=total;
 
 }
+function sendWhatsAppOrder(){
+
+let message="Hello, I want to order:%0A%0A";
+
+cart.forEach(item=>{
+message+=item.name+" - ₹"+item.price+"%0A";
+});
+
+let total=0;
+
+cart.forEach(item=>total+=item.price);
+
+message+="%0ATotal = ₹"+total;
+
+window.open("https://wa.me/918509727933?text="+message,"_blank");
+
+}

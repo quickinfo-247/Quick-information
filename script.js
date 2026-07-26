@@ -29,7 +29,7 @@ function searchProducts() {
 // Category Filter
 // -------------------------------
 function filterCategory(category) {
-
+console.log(category);
     const cards = document.querySelectorAll(".product-card");
 
     cards.forEach(card => {

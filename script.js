@@ -30,7 +30,42 @@ function addToCart(name, price) {
     }
 
     updateCart();
-} {
+}
+function updateCart() {
+
+    document.getElementById("cart-count").textContent = cart.length;
+
+    const list = document.getElementById("cart-items");
+    list.innerHTML = "";
+
+    let total = 0;
+
+    cart.forEach((item, index) => {
+
+        total += item.price * item.qty;
+
+        const li = document.createElement("li");
+
+        li.innerHTML =
+        `
+        ${item.name}<br>
+        ₹${item.price} × ${item.qty}
+
+        <button onclick="increaseQty(${index})">+</button>
+
+        <button onclick="decreaseQty(${index})">-</button>
+
+        <button onclick="removeItem(${index})">🗑️</button>
+        `;
+
+        list.appendChild(li);
+
+    });
+
+    document.getElementById("cart-total").textContent = total;
+
+}
+{
     cart.push({ name, price });
 
     document.getElementById("cart-count").textContent = cart.length;

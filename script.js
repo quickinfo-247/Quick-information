@@ -20,30 +20,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // WhatsApp Order
-  const buttons = document.querySelectorAll(".product-card button");
-
-  buttons.forEach(button => {
-    button.addEventListener("click", function () {
-
-      let product =
-        this.parentElement.querySelector("h3").textContent;
-
-      let price =
-        this.parentElement.querySelector("p").textContent;
-
-      let message =
-        `Hello Quick Information,%0A%0AI want to order:%0A${product}%0APrice: ${price}`;
-
-      window.open(
-        `https://wa.me/918509727933?text=${message}`,
-        "_blank"
-      );
-
-    });
-  });
-
-});
 function searchProducts() {
     const input = document.getElementById("search");
     const filter = input.value.toLowerCase();

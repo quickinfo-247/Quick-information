@@ -120,3 +120,4 @@ function toggleCart() {
         cartBox.style.display = "none";
     }
 }
+updateCart();

@@ -221,12 +221,18 @@ footer{
 }
 
 .cart-box button{
-    width:100%;
     background:#25D366;
     color:white;
     border:none;
-    padding:14px;
-    border-radius:8px;
-    font-size:18px;
+    padding:6px 10px;
+    margin:4px;
+    border-radius:6px;
     cursor:pointer;
+}
+
+.cart-box .order-btn{
+    width:100%;
+    margin-top:15px;
+    padding:14px;
+    font-size:18px;
 }

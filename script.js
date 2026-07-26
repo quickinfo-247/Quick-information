@@ -25,6 +25,26 @@ function searchProducts() {
         }
     });
 }
+// -------------------------------
+// Category Filter
+// -------------------------------
+function filterCategory(category) {
+
+    const cards = document.querySelectorAll(".product-card");
+
+    cards.forEach(card => {
+
+        if (category === "all") {
+            card.style.display = "";
+        } else if (card.dataset.category === category) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+
+}
 
 // -------------------------------
 // Add to Cart

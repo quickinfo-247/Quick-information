@@ -1,297 +1,318 @@
-// ===============================
-// Quick Information - script.js
-// ===============================
+// ===================================
+// Quick Information Script.js
+// Part 1
+// ===================================
 
-// Load cart from browser
-
+// Load Cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// -------------------------------
+// -----------------------------
 // Search Products
-// -------------------------------
-function searchProducts() {
-    const input = document.getElementById("search");
-    const filter = input.value.toLowerCase();
+// -----------------------------
+function searchProducts(){
+
+    const input = document.getElementById("search").value.toLowerCase();
 
     const cards = document.querySelectorAll(".product-card");
 
-    cards.forEach(card => {
+    cards.forEach(card=>{
+
         const title = card.querySelector("h3").textContent.toLowerCase();
 
-        if (title.includes(filter)) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
+        if(title.includes(input)){
+            card.style.display="";
+        }else{
+            card.style.display="none";
         }
+
     });
+
 }
-// -------------------------------
+
+// -----------------------------
 // Category Filter
-// -------------------------------
-function filterCategory(category) {
-console.log(category);
-    const cards = document.querySelectorAll(".product-card");
+// -----------------------------
+function filterCategory(category){
 
-    cards.forEach(card => {
+    const cards=document.querySelectorAll(".product-card");
 
-        if (category === "all") {
-            card.style.display = "";
-        } else if (card.dataset.category === category) {
-            card.style.display = "";
-        } else {
-            card.style.display = "none";
+    cards.forEach(card=>{
+
+        if(category==="all"){
+            card.style.display="";
+        }
+
+        else if(card.dataset.category===category){
+            card.style.display="";
+        }
+
+        else{
+            card.style.display="none";
         }
 
     });
 
 }
 
-// -------------------------------
-// Add to Cart
-// -------------------------------
-function addToCart(name, price, image) {
+// -----------------------------
+// Add To Cart
+// -----------------------------
+function addToCart(name,price,image){
 
-    const item = cart.find(product => product.name === name);
+    const item=cart.find(product=>product.name===name);
 
-    if (item) {
+    if(item){
+
         item.qty++;
-    } else {
+
+    }else{
+
         cart.push({
-            name: name,
-            price: price,
-            image: image,
-            qty: 1
+
+            name:name,
+
+            price:price,
+
+            image:image,
+
+            qty:1
+
         });
+
     }
 
     updateCart();
+
 }
 
-// -------------------------------
+// -----------------------------
 // Update Cart
-// -------------------------------
-function updateCart() {
+// -----------------------------
+function updateCart(){
 
-    document.getElementById("cart-count").textContent = cart.length;
+    const count=document.getElementById("cart-count");
 
-    const list = document.getElementById("cart-items");
-    list.innerHTML = "";
+    const list=document.getElementById("cart-items");
 
-    let total = 0;
+    const totalBox=document.getElementById("cart-total");
 
-    cart.forEach((item, index) => {
+    count.textContent=cart.length;
 
-        total += item.price * item.qty;
+    list.innerHTML="";
 
-        const li = document.createElement("li");
+    let total=0;
 
-        li.innerHTML = `
-            <img src="${item.image}"
-                 width="60"
-                 height="60"
-                 style="border-radius:8px;object-fit:contain;vertical-align:middle;margin-right:10px;">
+    cart.forEach((item,index)=>{
 
-            <b>${item.name}</b><br>
+        total += item.price*item.qty;
 
-            ₹${item.price} × ${item.qty}
-            = ₹${item.price * item.qty}
+        const li=document.createElement("li");
 
-            <br><br>
+        li.innerHTML=`
 
-            <button onclick="increaseQty(${index})">➕</button>
+<img src="${item.image}" width="60" height="60"
+style="border-radius:8px;object-fit:contain;vertical-align:middle;margin-right:10px;">
 
-            <button onclick="decreaseQty(${index})">➖</button>
+<b>${item.name}</b><br>
 
-            <button onclick="removeItem(${index})">🗑️</button>
+₹${item.price} × ${item.qty}
+= ₹${item.price*item.qty}
 
-            <hr>
-        `;
+<br><br>
+
+<button onclick="increaseQty(${index})">+</button>
+
+<button onclick="decreaseQty(${index})">-</button>
+
+<button onclick="removeItem(${index})">🗑️</button>
+
+<hr>
+
+`;
 
         list.appendChild(li);
 
     });
 
-    document.getElementById("cart-total").textContent = total;
+    totalBox.textContent=total;
 
-    localStorage.setItem("cart", JSON.stringify(cart));
+    localStorage.setItem("cart",JSON.stringify(cart));
+
 }
 
-// -------------------------------
+// -----------------------------
 // Increase Quantity
-// -------------------------------
-function increaseQty(index) {
+// -----------------------------
+function increaseQty(index){
 
     cart[index].qty++;
 
     updateCart();
+
 }
 
-// -------------------------------
+// -----------------------------
 // Decrease Quantity
-// -------------------------------
-function decreaseQty(index) {
+// -----------------------------
+function decreaseQty(index){
 
-    if (cart[index].qty > 1) {
+    if(cart[index].qty>1){
+
         cart[index].qty--;
-    } else {
-        cart.splice(index, 1);
+
+    }else{
+
+        cart.splice(index,1);
+
     }
 
     updateCart();
+
 }
 
-// -------------------------------
+// -----------------------------
 // Remove Item
-// -------------------------------
-function removeItem(index) {
+// -----------------------------
+function removeItem(index){
 
-    cart.splice(index, 1);
+    cart.splice(index,1);
 
     updateCart();
+
 }
+// ===================================
+// Part 2
+// ===================================
 
-// -------------------------------
+// -----------------------------
 // WhatsApp Order
-// -------------------------------
-function sendWhatsAppOrder() {
+// -----------------------------
+function sendWhatsAppOrder(){
 
-    if (cart.length === 0) {
+    if(cart.length===0){
+
         alert("Your cart is empty!");
+
         return;
+
     }
 
-    let message = "Hello Quick Information,%0A%0AI want to order:%0A%0A";
+    let message="Hello Quick Information,%0A%0A";
+    message+="I want to order:%0A%0A";
 
-    let total = 0;
+    let total=0;
 
-    cart.forEach(item => {
+    cart.forEach(item=>{
 
-        message += `${item.name}%0A`;
-        message += `Qty : ${item.qty}%0A`;
-        message += `Price : ₹${item.price * item.qty}%0A%0A`;
+        message+=item.name+"%0A";
 
-        total += item.price * item.qty;
+        message+="Qty : "+item.qty+"%0A";
+
+        message+="Price : ₹"+(item.price*item.qty)+"%0A%0A";
+
+        total+=item.price*item.qty;
 
     });
 
-    message += `Total Amount : ₹${total}`;
+    message+="Total Amount : ₹"+total;
 
     window.open(
-        "https://wa.me/918509727933?text=" + message,
+
+        "https://wa.me/918509727933?text="+message,
+
         "_blank"
+
     );
+
 }
 
-// -------------------------------
-// Open / Close Cart
-// -------------------------------
-function toggleCart() {
+// -----------------------------
+// Cart Show / Hide
+// -----------------------------
+function toggleCart(){
 
-    const cartBox = document.getElementById("cart-box");
+    const cartBox=document.getElementById("cart-box");
 
-    if (
-        cartBox.style.display === "none" ||
-        cartBox.style.display === ""
-    ) {
-        cartBox.style.display = "block";
-    } else {
-        cartBox.style.display = "none";
+    if(
+
+        cartBox.style.display==="none" ||
+
+        cartBox.style.display===""
+
+    ){
+
+        cartBox.style.display="block";
+
     }
+
+    else{
+
+        cartBox.style.display="none";
+
+    }
+
 }
 
-// -------------------------------
-// Load Cart on Page Load
-// -------------------------------
-updateCart();
-// -------------------------------
+// -----------------------------
 // Product Popup
-// -------------------------------
+// -----------------------------
+function openPopup(name,price,image,description){
 
-function openPopup(name, price, image, description){
+    document.getElementById("popup-image").src=image;
 
-    document.getElementById("popup-image").src = image;
-    document.getElementById("popup-title").textContent = name;
-    document.getElementById("popup-price").textContent = "₹" + price;
-    document.getElementById("popup-description").textContent = description;
+    document.getElementById("popup-title").textContent=name;
 
-    document.getElementById("popup-cart").onclick = function(){
-        addToCart(name, price, image);
+    document.getElementById("popup-price").textContent="₹"+price;
+
+    document.getElementById("popup-description").textContent=description;
+
+    document.getElementById("popup-cart").onclick=function(){
+
+        addToCart(name,price,image);
+
         closePopup();
+
     };
 
-    document.getElementById("popup-buy").onclick = function(){
+    document.getElementById("popup-buy").onclick=function(){
+
         window.open(
-            "https://wa.me/918509727933?text=I want to buy " + encodeURIComponent(name),
-            "_blank"
+
+        "https://wa.me/918509727933?text=I want to buy "+encodeURIComponent(name),
+
+        "_blank"
+
         );
+
     };
 
-    document.getElementById("product-popup").style.display = "block";
+    document.getElementById("product-popup").style.display="block";
+
 }
 
+// -----------------------------
+// Close Popup
+// -----------------------------
 function closePopup(){
-    document.getElementById("product-popup").style.display = "none";
+
+    document.getElementById("product-popup").style.display="none";
+
 }
-// =======================
+// ===================================
+// Part 3
+// Banner Slider + Initialize
+// ===================================
+
+// -----------------------------
 // Auto Banner Slider
-// =======================
-
-const slides = document.querySelectorAll(".slide");
-
+// -----------------------------
 let currentSlide = 0;
 
-if(slides.length > 0){
+function startSlider() {
 
-setInterval(()=>{
+    const slides = document.querySelectorAll(".slide");
 
-slides[currentSlide].classList.remove("active");
-
-currentSlide++;
-
-if(currentSlide >= slides.length){
-currentSlide = 0;
-}
-
-slides[currentSlide].classList.add("active");
-
-},3000);
-
-}
-// ===== Auto Banner Slider =====
-
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
-
-let currentSlide = 0;
-
-function showSlide(index){
-
-    slides.forEach(slide => slide.classList.remove("active"));
-    dots.forEach(dot => dot.classList.remove("active"));
-
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
-
-}
-
-setInterval(()=>{
-
-    currentSlide++;
-
-    if(currentSlide>=slides.length){
-        currentSlide=0;
-    }
-
-    showSlide(currentSlide);
-
-},3000);
-// ===== Banner Slider =====
-
-const slides = document.querySelectorAll(".slide");
-
-let currentSlide = 0;
-
-if (slides.length > 0) {
+    if (slides.length === 0) return;
 
     setInterval(function () {
 
@@ -306,7 +327,15 @@ if (slides.length > 0) {
         slides[currentSlide].classList.add("active");
 
     }, 3000);
-
 }
-console.log(slides.length);
-console.log("Slider Running");
+
+// -----------------------------
+// Page Load
+// -----------------------------
+window.onload = function () {
+
+    updateCart();
+
+    startSlider();
+
+};

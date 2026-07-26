@@ -29,7 +29,7 @@ function addToCart(name, price) {
         });
     }
 
-    updateCart();
+    updateCart(); localStorage.setItem("cart", JSON.stringify(cart));
 }
 function increaseQty(index) {
     cart[index].qty++;

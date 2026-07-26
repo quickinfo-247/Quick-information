@@ -126,3 +126,13 @@ cart.forEach(item => {
 
     window.open("https://wa.me/918509727933?text=" + message, "_blank");
 }
+function toggleCart() {
+
+    const cartBox = document.getElementById("cart-box");
+
+    if (cartBox.style.display === "none") {
+        cartBox.style.display = "block";
+    } else {
+        cartBox.style.display = "none";
+    }
+}

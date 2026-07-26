@@ -382,3 +382,29 @@ footer{
 .top-menu a:hover{
     background:#1565c0;
 }
+.logo-header{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+}
+
+.logo-header img{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#fff;
+    padding:4px;
+}
+
+.logo-header h1{
+    margin:0;
+    font-size:28px;
+    color:#fff;
+}
+
+.logo-header p{
+    margin:2px 0 0;
+    color:#e3f2fd;
+    font-size:14px;
+}

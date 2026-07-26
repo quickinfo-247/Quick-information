@@ -16,6 +16,21 @@ function searchProducts() {
 
 // Add to Cart
 function addToCart(name, price) {
+
+    let item = cart.find(product => product.name === name);
+
+    if (item) {
+        item.qty++;
+    } else {
+        cart.push({
+            name: name,
+            price: price,
+            qty: 1
+        });
+    }
+
+    updateCart();
+} {
     cart.push({ name, price });
 
     document.getElementById("cart-count").textContent = cart.length;

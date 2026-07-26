@@ -31,6 +31,26 @@ function addToCart(name, price) {
 
     updateCart();
 }
+function increaseQty(index) {
+    cart[index].qty++;
+    updateCart();
+}
+
+function decreaseQty(index) {
+
+    if (cart[index].qty > 1) {
+        cart[index].qty--;
+    } else {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+function removeItem(index) {
+    cart.splice(index, 1);
+    updateCart();
+}
 function updateCart() {
 
     document.getElementById("cart-count").textContent = cart.length;

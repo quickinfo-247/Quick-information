@@ -85,22 +85,6 @@ function updateCart() {
     document.getElementById("cart-total").textContent = total;
 
 }
-{
-    cart.push({ name, price });
-
-    document.getElementById("cart-count").textContent = cart.length;
-
-    const list = document.getElementById("cart-items");
-
-    const li = document.createElement("li");
-    li.textContent = `${name} - ₹${price}`;
-    list.appendChild(li);
-
-    let total = 0;
-    cart.forEach(item => total += item.price);
-
-    document.getElementById("cart-total").textContent = total;
-}
 
 // WhatsApp Order
 function sendWhatsAppOrder() {

@@ -193,7 +193,7 @@ footer{
     font-weight:bold;
 }
 .floating-whatsapp{
-    position: moveable;
+    position: fixed;
     bottom: 15px;
     right: 15px;
     background: #25D366;
@@ -246,7 +246,7 @@ footer{
 
 .cart-box button{
     background:#25D366;
-    color:white;
+    color:green;
     border:none;
     padding:6px 10px;
     margin:4px;

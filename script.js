@@ -3,7 +3,6 @@
 // ===============================
 
 // Load cart from browser
-localStorage.clear();
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 

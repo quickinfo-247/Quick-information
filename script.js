@@ -1,3 +1,4 @@
+localStorage.clear();
 // ===============================
 // Quick Information - script.js
 // ===============================

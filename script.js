@@ -1,6 +1,13 @@
-let cart = [];
+// ===============================
+// Quick Information - script.js
+// ===============================
 
-// Search
+// Load cart from browser
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// -------------------------------
+// Search Products
+// -------------------------------
 function searchProducts() {
     const input = document.getElementById("search");
     const filter = input.value.toLowerCase();
@@ -10,14 +17,20 @@ function searchProducts() {
     cards.forEach(card => {
         const title = card.querySelector("h3").textContent.toLowerCase();
 
-        card.style.display = title.includes(filter) ? "" : "none";
+        if (title.includes(filter)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
     });
 }
 
+// -------------------------------
 // Add to Cart
+// -------------------------------
 function addToCart(name, price, image) {
 
-    let item = cart.find(product => product.name === name);
+    const item = cart.find(product => product.name === name);
 
     if (item) {
         item.qty++;
@@ -33,27 +46,9 @@ function addToCart(name, price, image) {
     updateCart();
 }
 
-}
-function increaseQty(index) {
-    cart[index].qty++;
-    updateCart();
-}
-
-function decreaseQty(index) {
-
-    if (cart[index].qty > 1) {
-        cart[index].qty--;
-    } else {
-        cart.splice(index, 1);
-    }
-
-    updateCart();
-}
-
-function removeItem(index) {
-    cart.splice(index, 1);
-    updateCart();
-}
+// -------------------------------
+// Update Cart
+// -------------------------------
 function updateCart() {
 
     document.getElementById("cart-count").textContent = cart.length;
@@ -70,19 +65,25 @@ function updateCart() {
         const li = document.createElement("li");
 
         li.innerHTML = `
-<img src="${item.image}" width="60" height="60"
-style="border-radius:8px;object-fit:contain;vertical-align:middle;">
+            <img src="${item.image}"
+                 width="60"
+                 height="60"
+                 style="border-radius:8px;object-fit:contain;vertical-align:middle;margin-right:10px;">
 
-<b>${item.name}</b><br>
+            <b>${item.name}</b><br>
 
-₹${item.price} × ${item.qty}<br>
+            ₹${item.price} × ${item.qty}
+            = ₹${item.price * item.qty}
 
+            <br><br>
 
-        <button onclick="increaseQty(${index})">+</button>
+            <button onclick="increaseQty(${index})">➕</button>
 
-        <button onclick="decreaseQty(${index})">-</button>
+            <button onclick="decreaseQty(${index})">➖</button>
 
-        <button onclick="removeItem(${index})">🗑️</button>
+            <button onclick="removeItem(${index})">🗑️</button>
+
+            <hr>
         `;
 
         list.appendChild(li);
@@ -91,9 +92,46 @@ style="border-radius:8px;object-fit:contain;vertical-align:middle;">
 
     document.getElementById("cart-total").textContent = total;
 
+    localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+// -------------------------------
+// Increase Quantity
+// -------------------------------
+function increaseQty(index) {
+
+    cart[index].qty++;
+
+    updateCart();
+}
+
+// -------------------------------
+// Decrease Quantity
+// -------------------------------
+function decreaseQty(index) {
+
+    if (cart[index].qty > 1) {
+        cart[index].qty--;
+    } else {
+        cart.splice(index, 1);
+    }
+
+    updateCart();
+}
+
+// -------------------------------
+// Remove Item
+// -------------------------------
+function removeItem(index) {
+
+    cart.splice(index, 1);
+
+    updateCart();
+}
+
+// -------------------------------
 // WhatsApp Order
+// -------------------------------
 function sendWhatsAppOrder() {
 
     if (cart.length === 0) {
@@ -101,30 +139,46 @@ function sendWhatsAppOrder() {
         return;
     }
 
-    let message = "Hello, I want to order:%0A%0A";
-
-    cart.forEach(item => {
-        message += `${item.name} × ${item.qty} = ₹${item.price * item.qty}%0A`;
-    });
+    let message = "Hello Quick Information,%0A%0AI want to order:%0A%0A";
 
     let total = 0;
 
-cart.forEach(item => {
-    total += item.price * item.qty;
-});
+    cart.forEach(item => {
 
-    message += `%0ATotal = ₹${total}`;
+        message += `${item.name}%0A`;
+        message += `Qty : ${item.qty}%0A`;
+        message += `Price : ₹${item.price * item.qty}%0A%0A`;
 
-    window.open("https://wa.me/918509727933?text=" + message, "_blank");
+        total += item.price * item.qty;
+
+    });
+
+    message += `Total Amount : ₹${total}`;
+
+    window.open(
+        "https://wa.me/918509727933?text=" + message,
+        "_blank"
+    );
 }
+
+// -------------------------------
+// Open / Close Cart
+// -------------------------------
 function toggleCart() {
 
     const cartBox = document.getElementById("cart-box");
 
-    if (cartBox.style.display === "none") {
+    if (
+        cartBox.style.display === "none" ||
+        cartBox.style.display === ""
+    ) {
         cartBox.style.display = "block";
     } else {
         cartBox.style.display = "none";
     }
 }
+
+// -------------------------------
+// Load Cart on Page Load
+// -------------------------------
 updateCart();

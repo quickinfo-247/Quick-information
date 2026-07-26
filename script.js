@@ -113,11 +113,14 @@ function sendWhatsAppOrder() {
     let message = "Hello, I want to order:%0A%0A";
 
     cart.forEach(item => {
-        message += `${item.name} - ₹${item.price}%0A`;
+        message += `${item.name} × ${item.qty} = ₹${item.price * item.qty}%0A`;
     });
 
     let total = 0;
-    cart.forEach(item => total += item.price);
+
+cart.forEach(item => {
+    total += item.price * item.qty;
+});
 
     message += `%0ATotal = ₹${total}`;
 

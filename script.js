@@ -33,7 +33,6 @@ function addToCart(name, price, image) {
     updateCart();
 }
 
-    updateCart(); localStorage.setItem("cart", JSON.stringify(cart));
 }
 function increaseQty(index) {
     cart[index].qty++;
@@ -78,12 +77,6 @@ style="border-radius:8px;object-fit:contain;vertical-align:middle;">
 
 ₹${item.price} × ${item.qty}<br>
 
-<button onclick="increaseQty(${index})">+</button>
-
-<button onclick="decreaseQty(${index})">-</button>
-
-<button onclick="removeItem(${index})">🗑️</button>
-`;
 
         <button onclick="increaseQty(${index})">+</button>
 

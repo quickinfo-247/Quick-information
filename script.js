@@ -203,3 +203,32 @@ function toggleCart() {
 // Load Cart on Page Load
 // -------------------------------
 updateCart();
+// -------------------------------
+// Product Popup
+// -------------------------------
+
+function openPopup(name, price, image, description){
+
+    document.getElementById("popup-image").src = image;
+    document.getElementById("popup-title").textContent = name;
+    document.getElementById("popup-price").textContent = "₹" + price;
+    document.getElementById("popup-description").textContent = description;
+
+    document.getElementById("popup-cart").onclick = function(){
+        addToCart(name, price, image);
+        closePopup();
+    };
+
+    document.getElementById("popup-buy").onclick = function(){
+        window.open(
+            "https://wa.me/918509727933?text=I want to buy " + encodeURIComponent(name),
+            "_blank"
+        );
+    };
+
+    document.getElementById("product-popup").style.display = "block";
+}
+
+function closePopup(){
+    document.getElementById("product-popup").style.display = "none";
+}

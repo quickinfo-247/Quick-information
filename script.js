@@ -15,7 +15,7 @@ function searchProducts() {
 }
 
 // Add to Cart
-function addToCart(name, price) {
+function addToCart(name, price, image) {
 
     let item = cart.find(product => product.name === name);
 
@@ -25,9 +25,13 @@ function addToCart(name, price) {
         cart.push({
             name: name,
             price: price,
+            image: image,
             qty: 1
         });
     }
+
+    updateCart();
+}
 
     updateCart(); localStorage.setItem("cart", JSON.stringify(cart));
 }
@@ -66,10 +70,20 @@ function updateCart() {
 
         const li = document.createElement("li");
 
-        li.innerHTML =
-        `
-        ${item.name}<br>
-        ₹${item.price} × ${item.qty}
+        li.innerHTML = `
+<img src="${item.image}" width="60" height="60"
+style="border-radius:8px;object-fit:contain;vertical-align:middle;">
+
+<b>${item.name}</b><br>
+
+₹${item.price} × ${item.qty}<br>
+
+<button onclick="increaseQty(${index})">+</button>
+
+<button onclick="decreaseQty(${index})">-</button>
+
+<button onclick="removeItem(${index})">🗑️</button>
+`;
 
         <button onclick="increaseQty(${index})">+</button>
 

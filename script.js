@@ -308,3 +308,5 @@ if (slides.length > 0) {
     }, 3000);
 
 }
+console.log(slides.length);
+console.log("Slider Running");

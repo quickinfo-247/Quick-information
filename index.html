@@ -5,113 +5,20 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
 <title>Quick Information</title>
 
-<meta name="description" content="Electrical, Electronics, CCTV & Solar Products">
+<meta name="description"
+content="Electrical | Electronics | CCTV | Solar Products">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet"
+href="style.css">
 
 </head>
 
 <body>
-
-<!-- ========================= -->
-<!-- Header -->
-<!-- ========================= -->
-
-<header class="header">
-
-<div class="top-header">
-
-<div class="logo-box">
-
-<img src="images/logo.png" alt="Quick Information Logo">
-
-<div>
-
-<h1>Quick Information</h1>
-
-<p>Electrical • Electronics • CCTV • Solar</p>
-
-</div>
-
-</div>
-
-<div class="cart-bar" onclick="toggleCart()">
-
-🛒 Cart
-<span id="cart-count">0</span>
-
-</div>
-
-</div>
-
-<nav class="menu">
-
-<a href="#">Home</a>
-
-<a href="#products">Products</a>
-
-<a href="#about">About</a>
-
-<a href="#contact">Contact</a>
-
-<a href="https://wa.me/918509727933" target="_blank">
-WhatsApp
-</a>
-
-</nav>
-
-</header>
-
-<!-- ========================= -->
-<!-- Shopping Cart -->
-<!-- ========================= -->
-
-<div id="cart-box" class="cart-box">
-
-<h2>🛒 Shopping Cart</h2>
-
-<ul id="cart-items"></ul>
-
-<div class="cart-total">
-
-Total :
-₹<span id="cart-total">0</span>
-
-</div>
-
-<button class="order-btn"
-onclick="sendWhatsAppOrder()">
-
-Order via WhatsApp
-
-</button>
-
-</div>
-
-<!-- ========================= -->
-<!-- Banner Slider -->
-<!-- ========================= -->
-
-<section class="slider">
-
-<img src="images/banner1.jpg"
-class="slide active">
-
-<img src="images/banner2.jpg"
-class="slide">
-
-<img src="images/banner3.jpg"
-class="slide">
-
-<img src="images/banner4.jpg"
-class="slide">
-
-</section>
-
 
 <!-- ================= HEADER ================= -->
 
@@ -121,19 +28,25 @@ class="slide">
 
 <div class="logo-area">
 
-<img src="images/logo.png" alt="Quick Information">
+<img
+src="images/logo.png"
+alt="Quick Information">
 
 <div>
 
 <h1>Quick Information</h1>
 
-<p>Electrical • Electronics • CCTV • Solar</p>
+<p>
+Electrical • Electronics • CCTV • Solar
+</p>
 
 </div>
 
 </div>
 
-<div class="cart-bar" onclick="toggleCart()">
+<div
+class="cart-bar"
+onclick="toggleCart()">
 
 🛒 Cart
 
@@ -153,7 +66,9 @@ class="slide">
 
 <a href="#contact">Contact</a>
 
-<a href="https://wa.me/918509727933" target="_blank">
+<a
+href="https://wa.me/918509727933"
+target="_blank">
 
 WhatsApp
 
@@ -165,7 +80,9 @@ WhatsApp
 
 <!-- ================= SHOPPING CART ================= -->
 
-<div id="cart-box" class="cart-box">
+<div
+id="cart-box"
+class="cart-box">
 
 <h2>🛒 Shopping Cart</h2>
 
@@ -174,13 +91,12 @@ WhatsApp
 <h3>
 
 Total :
-
 ₹<span id="cart-total">0</span>
 
 </h3>
 
-<button class="order-btn"
-
+<button
+class="order-btn"
 onclick="sendWhatsAppOrder()">
 
 Order via WhatsApp
@@ -193,18 +109,38 @@ Order via WhatsApp
 
 <section class="slider">
 
-<img src="images/banner1.jpg" class="slide active">
+<img
+src="images/banner1.jpg"
+class="slide active">
 
-<img src="images/banner2.jpg" class="slide">
+<img
+src="images/banner2.jpg"
+class="slide">
 
-<img src="images/banner3.jpg" class="slide">
+<img
+src="images/banner3.jpg"
+class="slide">
 
-<img src="images/banner4.jpg" class="slide">
+<img
+src="images/banner4.jpg"
+class="slide">
 
 </section>
 
+<!-- ================= SEARCH ================= -->
+
+<section class="search-section">
+
+<h2>Find Your Product</h2>
+
+<input
+type="text"
+id="search"
+placeholder="🔍 Search Products..."
+onkeyup="searchProducts()">
 
 </section>
+
 <!-- ================= CATEGORY ================= -->
 
 <section class="category-section">
@@ -231,11 +167,15 @@ Order via WhatsApp
 
 <!-- ================= PRODUCTS ================= -->
 
-<section id="products" class="products">
+<section
+id="products"
+class="products">
 
 <h2>Our Products</h2>
 
-<div class="product-grid" id="product-grid">
+<div
+id="product-grid"
+class="product-grid">
 
 <!-- Products will load automatically -->
 
@@ -245,12 +185,14 @@ Order via WhatsApp
 
 <!-- ================= PRODUCT POPUP ================= -->
 
-<div id="product-popup" class="popup">
+<div
+id="product-popup"
+class="popup">
 
 <div class="popup-content">
 
-<span class="close"
-
+<span
+class="close"
 onclick="closePopup()">
 
 &times;
@@ -258,14 +200,9 @@ onclick="closePopup()">
 </span>
 
 <img
-
 id="popup-image"
-
 src=""
-
-alt="Product"
-
->
+alt="Product">
 
 <h2 id="popup-title"></h2>
 
@@ -338,9 +275,7 @@ Buy on WhatsApp
 </a>
 
 <a href="https://wa.me/918509727933"
-
 target="_blank"
-
 class="wa-btn">
 
 💬 WhatsApp
@@ -366,11 +301,8 @@ class="wa-btn">
 <!-- ================= FLOATING WHATSAPP ================= -->
 
 <a
-
 href="https://wa.me/918509727933"
-
 target="_blank"
-
 class="floating-whatsapp">
 
 💬
@@ -380,152 +312,6 @@ class="floating-whatsapp">
 <!-- ================= SCRIPT ================= -->
 
 <script type="module" src="script.js"></script>
-
-</body>
-
-</html>
-
-<!-- ========================= -->
-<!-- Product Section -->
-<!-- ========================= -->
-
-<section id="products" class="products">
-
-<h2>Our Products</h2>
-
-<div class="product-grid" id="product-grid">
-
-</div>
-
-</section>
-
-
-<!-- ========================= -->
-<!-- Product Popup -->
-<!-- ========================= -->
-
-<div id="product-popup" class="popup">
-
-<div class="popup-content">
-
-<span class="close" onclick="closePopup()">&times;</span>
-
-<img id="popup-image" src="" alt="Product Image">
-
-<h2 id="popup-title"></h2>
-
-<h3 id="popup-price"></h3>
-
-<p id="popup-description"></p>
-
-<div class="popup-buttons">
-
-<button id="popup-cart">
-🛒 Add to Cart
-</button>
-
-<button id="popup-buy">
-Buy on WhatsApp
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- ========================= -->
-<!-- About -->
-<!-- ========================= -->
-
-<section id="about" class="about">
-
-<h2>Why Choose Us?</h2>
-
-<div class="about-box">
-
-<p>✔ Genuine Electrical Products</p>
-
-<p>✔ Electronics Products</p>
-
-<p>✔ CCTV Products</p>
-
-<p>✔ Solar Products</p>
-
-<p>✔ Best Price Guarantee</p>
-
-<p>✔ Trusted Local Seller</p>
-
-</div>
-
-</section>
-
-<!-- ========================= -->
-<!-- Contact -->
-<!-- ========================= -->
-
-<section id="contact" class="contact">
-
-<h2>Contact Us</h2>
-
-<p>📞 Mobile : 8509727933</p>
-
-<p>💬 WhatsApp : 8509727933</p>
-
-<p>📍 Gobardanga, Ichapur, North 24 Parganas</p>
-
-<a class="contact-btn"
-href="tel:+918509727933">
-
-📞 Call Now
-
-</a>
-
-<a class="whatsapp-btn"
-target="_blank"
-href="https://wa.me/918509727933">
-
-💬 WhatsApp
-
-</a>
-
-</section>
-
-<!-- ========================= -->
-<!-- Footer -->
-<!-- ========================= -->
-
-<footer>
-
-<h3>Quick Information</h3>
-
-<p>
-Electrical | Electronics | CCTV | Solar
-</p>
-
-<p>
-
-© 2026 All Rights Reserved
-
-</p>
-
-</footer>
-
-<!-- Floating WhatsApp -->
-
-<a
-
-href="https://wa.me/918509727933"
-
-target="_blank"
-
-class="floating-whatsapp">
-
-💬
-
-</a>
-
-<script src="script.js"></script>
 
 </body>
 

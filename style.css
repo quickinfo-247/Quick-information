@@ -988,3 +988,49 @@ user-select:none;
 transform:scale(1.2);
 
 }
+
+/* ===========================
+Back To Top
+=========================== */
+
+#topBtn{
+
+display:none;
+
+position:fixed;
+
+bottom:90px;
+
+right:20px;
+
+width:55px;
+
+height:55px;
+
+border:none;
+
+border-radius:50%;
+
+background:#1565c0;
+
+color:white;
+
+font-size:26px;
+
+cursor:pointer;
+
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+
+transition:.3s;
+
+z-index:999;
+
+}
+
+#topBtn:hover{
+
+background:#0d47a1;
+
+transform:scale(1.08);
+
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quick Information Admin</title>
+
+<link rel="stylesheet" href="admin.css">
+
+</head>
+
+<body>
+
+<div class="login-box" id="loginBox">
+
+<h1>🔐 Admin Login</h1>
+
+<input
+type="password"
+id="password"
+placeholder="Enter Password">
+
+<button onclick="login()">
+
+Login
+
+</button>
+
+<p id="loginError"></p>
+
+</div>
+
+<div
+id="adminPanel"
+class="admin-panel"
+style="display:none;">
+
+<header>
+
+<h1>
+
+Quick Information Admin Panel
+
+</h1>
+
+<button onclick="logout()">
+
+Logout
+
+</button>
+
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+
+<section class="dashboard">
+
+<div class="card">
+
+<h2 id="totalProducts">0</h2>
+
+<p>Total Products</p>
+
+</div>
+
+<div class="card">
+
+<h2 id="totalCategory">5</h2>
+
+<p>Categories</p>
+
+</div>
+
+</section>
+
+<!-- ================= ADD PRODUCT ================= -->
+
+<section class="product-form">
+
+<h2>Add / Edit Product</h2>
+
+<input
+type="text"
+id="pname"
+placeholder="Product Name">
+
+<input
+type="number"
+id="pprice"
+placeholder="Price">
+
+<input
+type="text"
+id="pimage"
+placeholder="Image Name (Example: bulb9w.jpg)">
+
+<select id="pcategory">
+
+<option value="lights">Lights</option>
+
+<option value="electrical">Electrical</option>
+
+<option value="electronics">Electronics</option>
+
+<option value="cctv">CCTV</option>
+
+<option value="solar">Solar</option>
+
+</select>
+
+<textarea
+id="pdescription"
+placeholder="Product Description">
+
+</textarea>
+
+<button onclick="saveProduct()">
+
+💾 Save Product
+
+</button>
+
+</section>
+
+<!-- ================= PRODUCT LIST ================= -->
+
+<section class="product-list">
+
+<h2>All Products</h2>
+
+<div id="productTable">
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+
+Quick Information Admin Panel
+
+</p>
+
+<p>
+
+Version 1.0
+
+</p>
+
+</footer>
+
+</div>
+
+<!-- ================= SCRIPT ================= -->
+
+<script src="admin.js"></script>
+
+</body>
+
+</html>

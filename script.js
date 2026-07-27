@@ -368,3 +368,22 @@ window.onload = function () {
     startSlider();
 
 };
+// ===========================
+// Start Firebase
+// ===========================
+
+window.addEventListener("DOMContentLoaded", async () => {
+
+    try {
+
+        await loadProducts();
+
+        console.log("Firebase Connected Successfully ✅");
+
+    } catch (error) {
+
+        console.log("Firebase Error :", error);
+
+    }
+
+});

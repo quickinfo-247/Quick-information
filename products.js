@@ -10,7 +10,7 @@ const products = [
 
 {
     name: "Philips AC/DC Bulb",
-    price: 300,
+    price: 280,
     image: "images/philips.jpg",
     category: "lights",
     description: "Original Philips AC/DC LED Bulb"

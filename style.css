@@ -962,3 +962,29 @@ box-shadow:0 3px 8px rgba(0,0,0,.2);
 background:#2e7d32;
 
 }
+
+/* Wishlist */
+
+.wishlist{
+
+position:absolute;
+
+top:12px;
+
+right:12px;
+
+font-size:28px;
+
+cursor:pointer;
+
+transition:.3s;
+
+user-select:none;
+
+}
+
+.wishlist:hover{
+
+transform:scale(1.2);
+
+}

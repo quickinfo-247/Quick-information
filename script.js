@@ -1,77 +1,96 @@
-// ===================================
-// Quick Information Script.js
-// Part 1
-// ===================================
-// -----------------------------
+// =========================================
+// Quick Information Website V2
+// script.js - Part 1
+// =========================================
+
+// Shopping Cart
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// =======================
 // Search Products
-// -----------------------------
-function searchProducts(){
+// =======================
 
-    const input = document.getElementById("search").value.toLowerCase();
+function searchProducts() {
 
-    const cards = document.querySelectorAll(".product-card");
+    let input = document.getElementById("search").value.toLowerCase();
 
-    cards.forEach(card=>{
+    let cards = document.querySelectorAll(".product-card");
 
-        const title = card.querySelector("h3").textContent.toLowerCase();
+    cards.forEach(card => {
 
-        if(title.includes(input)){
-            card.style.display="";
-        }else{
-            card.style.display="none";
+        let title = card.querySelector("h3").textContent.toLowerCase();
+
+        if (title.includes(input)) {
+
+            card.style.display = "block";
+
+        } else {
+
+            card.style.display = "none";
+
         }
 
     });
 
 }
 
-// -----------------------------
+// =======================
 // Category Filter
-// -----------------------------
-function filterCategory(category){
+// =======================
 
-    const cards=document.querySelectorAll(".product-card");
+function filterCategory(category) {
 
-    cards.forEach(card=>{
+    let cards = document.querySelectorAll(".product-card");
 
-        if(category==="all"){
-            card.style.display="";
+    cards.forEach(card => {
+
+        if (category === "all") {
+
+            card.style.display = "block";
+
         }
 
-        else if(card.dataset.category===category){
-            card.style.display="";
+        else if (card.dataset.category === category) {
+
+            card.style.display = "block";
+
         }
 
-        else{
-            card.style.display="none";
+        else {
+
+            card.style.display = "none";
+
         }
 
     });
 
 }
 
-// -----------------------------
+// =======================
 // Add To Cart
-// -----------------------------
-function addToCart(name,price,image){
+// =======================
 
-    const item=cart.find(product=>product.name===name);
+function addToCart(name, price, image) {
 
-    if(item){
+    let item = cart.find(product => product.name === name);
+
+    if (item) {
 
         item.qty++;
 
-    }else{
+    }
+
+    else {
 
         cart.push({
 
-            name:name,
+            name: name,
 
-            price:price,
+            price: price,
 
-            image:image,
+            image: image,
 
-            qty:1
+            qty: 1
 
         });
 
@@ -81,38 +100,35 @@ function addToCart(name,price,image){
 
 }
 
-// -----------------------------
+// =======================
 // Update Cart
-// -----------------------------
-function updateCart(){
+// =======================
 
-    const count=document.getElementById("cart-count");
+function updateCart() {
 
-    const list=document.getElementById("cart-items");
+    document.getElementById("cart-count").textContent = cart.length;
 
-    const totalBox=document.getElementById("cart-total");
+    let list = document.getElementById("cart-items");
 
-    count.textContent=cart.length;
+    list.innerHTML = "";
 
-    list.innerHTML="";
+    let total = 0;
 
-    let total=0;
+    cart.forEach((item, index) => {
 
-    cart.forEach((item,index)=>{
+        total += item.price * item.qty;
 
-        total += item.price*item.qty;
+        list.innerHTML += `
 
-        const li=document.createElement("li");
-
-        li.innerHTML=`
-
-<img src="${item.image}" width="60" height="60"
-style="border-radius:8px;object-fit:contain;vertical-align:middle;margin-right:10px;">
+<li>
 
 <b>${item.name}</b><br>
 
 ₹${item.price} × ${item.qty}
-= ₹${item.price*item.qty}
+
+<br>
+
+₹${item.price * item.qty}
 
 <br><br>
 
@@ -122,23 +138,26 @@ style="border-radius:8px;object-fit:contain;vertical-align:middle;margin-right:1
 
 <button onclick="removeItem(${index})">🗑️</button>
 
-<hr>
+</li>
 
 `;
 
-        list.appendChild(li);
-
     });
 
-    totalBox.textContent=total;
+    document.getElementById("cart-total").textContent = total;
 
-    localStorage.setItem("cart",JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
 
 }
 
-// -----------------------------
+// =========================================
+// script.js - Part 2
+// =========================================
+
+// =======================
 // Increase Quantity
-// -----------------------------
+// =======================
+
 function increaseQty(index){
 
     cart[index].qty++;
@@ -147,12 +166,13 @@ function increaseQty(index){
 
 }
 
-// -----------------------------
+// =======================
 // Decrease Quantity
-// -----------------------------
+// =======================
+
 function decreaseQty(index){
 
-    if(cart[index].qty>1){
+    if(cart[index].qty > 1){
 
         cart[index].qty--;
 
@@ -166,9 +186,10 @@ function decreaseQty(index){
 
 }
 
-// -----------------------------
+// =======================
 // Remove Item
-// -----------------------------
+// =======================
+
 function removeItem(index){
 
     cart.splice(index,1);
@@ -176,72 +197,26 @@ function removeItem(index){
     updateCart();
 
 }
-// ===================================
-// Part 2
-// ===================================
 
-// -----------------------------
-// WhatsApp Order
-// -----------------------------
-function sendWhatsAppOrder(){
+// =======================
+// Toggle Cart
+// =======================
 
-    if(cart.length===0){
-
-        alert("Your cart is empty!");
-
-        return;
-
-    }
-
-    let message="Hello Quick Information,%0A%0A";
-    message+="I want to order:%0A%0A";
-
-    let total=0;
-
-    cart.forEach(item=>{
-
-        message+=item.name+"%0A";
-
-        message+="Qty : "+item.qty+"%0A";
-
-        message+="Price : ₹"+(item.price*item.qty)+"%0A%0A";
-
-        total+=item.price*item.qty;
-
-    });
-
-    message+="Total Amount : ₹"+total;
-
-    window.open(
-
-        "https://wa.me/918509727933?text="+message,
-
-        "_blank"
-
-    );
-
-}
-
-// -----------------------------
-// Cart Show / Hide
-// -----------------------------
 function toggleCart(){
 
-    const cartBox=document.getElementById("cart-box");
+    let cartBox = document.getElementById("cart-box");
 
     if(
 
-        cartBox.style.display==="none" ||
+        cartBox.style.display=="none" ||
 
-        cartBox.style.display===""
+        cartBox.style.display==""
 
     ){
 
         cartBox.style.display="block";
 
-    }
-
-    else{
+    }else{
 
         cartBox.style.display="none";
 
@@ -249,9 +224,10 @@ function toggleCart(){
 
 }
 
-// -----------------------------
+// =======================
 // Product Popup
-// -----------------------------
+// =======================
+
 function openPopup(name,price,image,description){
 
     document.getElementById("popup-image").src=image;
@@ -274,7 +250,8 @@ function openPopup(name,price,image,description){
 
         window.open(
 
-        "https://wa.me/918509727933?text=I want to buy "+encodeURIComponent(name),
+        "https://wa.me/918509727933?text="+
+        encodeURIComponent("I want to buy : "+name),
 
         "_blank"
 
@@ -286,52 +263,115 @@ function openPopup(name,price,image,description){
 
 }
 
-// -----------------------------
+// =======================
 // Close Popup
-// -----------------------------
+// =======================
+
 function closePopup(){
 
     document.getElementById("product-popup").style.display="none";
 
 }
-// ===================================
-// Part 3
-// Banner Slider + Initialize
-// ===================================
 
-// -----------------------------
-// Auto Banner Slider
-// -----------------------------
+// =========================================
+// script.js - Part 3
+// =========================================
+
+// =======================
+// WhatsApp Order
+// =======================
+
+function sendWhatsAppOrder(){
+
+    if(cart.length===0){
+
+        alert("Your cart is empty!");
+
+        return;
+
+    }
+
+    let message="Hello Quick Information,%0A%0A";
+    message+="I want to order:%0A%0A";
+
+    let total=0;
+
+    cart.forEach(item=>{
+
+        message+="• "+item.name+"%0A";
+        message+="Qty : "+item.qty+"%0A";
+        message+="Price : ₹"+(item.price*item.qty)+"%0A%0A";
+
+        total += item.price*item.qty;
+
+    });
+
+    message+="--------------------%0A";
+    message+="Total : ₹"+total;
+
+    window.open(
+        "https://wa.me/918509727933?text="+message,
+        "_blank"
+    );
+
+}
+
+// =======================
+// Banner Slider
+// =======================
+
 let currentSlide = 0;
 
-function startSlider() {
+function startSlider(){
 
-    const slides = document.querySelectorAll(".slide");
+    const slides=document.querySelectorAll(".slide");
 
-    if (slides.length === 0) return;
+    if(slides.length===0) return;
 
-    setInterval(function () {
+    setInterval(function(){
 
         slides[currentSlide].classList.remove("active");
 
         currentSlide++;
 
-        if (currentSlide >= slides.length) {
-            currentSlide = 0;
+        if(currentSlide>=slides.length){
+
+            currentSlide=0;
+
         }
 
         slides[currentSlide].classList.add("active");
 
-    }, 3000);
+    },3000);
+
 }
 
-// -----------------------------
-// Page Load
-// -----------------------------
-window.onload = function () {
+// =======================
+// Close Popup Outside Click
+// =======================
+
+window.onclick=function(event){
+
+    const popup=document.getElementById("product-popup");
+
+    if(event.target===popup){
+
+        closePopup();
+
+    }
+
+}
+
+// =======================
+// Initialize
+// =======================
+
+window.onload=function(){
 
     updateCart();
 
     startSlider();
 
-};
+}
+
+console.log("Quick Information Website V2 Loaded Successfully");

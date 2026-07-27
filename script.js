@@ -1,12 +1,40 @@
 // ==============================
 // Quick Information V3
-// Part 1
+//
 // ==============================
 
 import { products } from "./products.js";
 
 // Shopping Cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Wishlist
+
+let wishlist = JSON.parse(
+localStorage.getItem("wishlist")
+) || [];
+
+function toggleWishlist(name){
+
+if(wishlist.includes(name)){
+
+wishlist = wishlist.filter(
+item => item !== name
+);
+
+}else{
+
+wishlist.push(name);
+
+}
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+loadProducts();
+
+}
 
 // ==============================
 // Load Products
@@ -21,8 +49,16 @@ function loadProducts() {
     products.forEach(product => {
 
         container.innerHTML += `
-
+<div class="badge">SALE</div>
 <div class="product-card" data-category="${product.category}">
+
+<div class="wishlist"
+
+onclick="toggleWishlist('${product.name}')">
+
+${wishlist.includes(product.name) ? "❤️" : "🤍"}
+
+</div>
 
 <img src="${product.image}" alt="${product.name}">
 

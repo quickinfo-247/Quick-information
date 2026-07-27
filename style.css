@@ -922,3 +922,43 @@ height:50px;
 }
 
 }
+
+/* ===========================
+Product Badge
+=========================== */
+
+.product-card{
+position:relative;
+}
+
+.badge{
+
+position:absolute;
+
+top:12px;
+
+left:12px;
+
+background:#e53935;
+
+color:#fff;
+
+padding:5px 10px;
+
+font-size:12px;
+
+font-weight:bold;
+
+border-radius:20px;
+
+z-index:5;
+
+box-shadow:0 3px 8px rgba(0,0,0,.2);
+
+}
+
+.badge.new{
+
+background:#2e7d32;
+
+}

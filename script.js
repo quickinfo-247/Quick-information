@@ -3,6 +3,8 @@
 // script.js - Part 1
 // =========================================
 
+import { products } from "./products.js";
+
 // Shopping Cart
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
@@ -366,7 +368,9 @@ window.onclick=function(event){
 // Initialize
 // =======================
 
-window.onload=function(){
+window.onload = function(){
+
+    loadProducts();
 
     updateCart();
 
@@ -375,3 +379,43 @@ window.onload=function(){
 }
 
 console.log("Quick Information Website V2 Loaded Successfully");
+
+function loadProducts(){
+
+    const container = document.getElementById("product-grid");
+
+    container.innerHTML = "";
+
+    products.forEach(product => {
+
+        container.innerHTML += `
+
+<div class="product-card" data-category="${product.category}">
+
+<img src="${product.image}" alt="${product.name}">
+
+<h3>${product.name}</h3>
+
+<p class="price">₹${product.price}</p>
+
+<span class="stock">🟢 In Stock</span>
+
+<div class="product-btns">
+
+<button onclick="openPopup('${product.name}',${product.price},'${product.image}','${product.description}')">
+View
+</button>
+
+<button onclick="addToCart('${product.name}',${product.price},'${product.image}')">
+🛒 Add
+</button>
+
+</div>
+
+</div>
+
+`;
+
+    });
+
+}

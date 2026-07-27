@@ -1,105 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Quick Information</title>
+
+<meta name="description" content="Electrical, Electronics, CCTV & Solar Products">
 
 <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<!-- Product Popup -->
-
-<div id="product-popup" class="popup">
-
-    <div class="popup-content">
-
-        <span class="close" onclick="closePopup()">&times;</span>
-
-        <img id="popup-image">
-
-        <h2 id="popup-title"></h2>
-
-        <h3 id="popup-price"></h3>
-
-        <p id="popup-description"></p>
-
-        <button id="popup-cart">
-            🛒 Add to Cart
-        </button>
-
-        <button id="popup-buy">
-            Buy on WhatsApp
-        </button>
-
-    </div>
-
-</div>
+<!-- ========================= -->
+<!-- Header -->
+<!-- ========================= -->
 
 <header class="header">
+
+<div class="top-header">
+
+<div class="logo-box">
+
+<img src="images/logo.png" alt="Quick Information Logo">
+
+<div>
+
+<h1>Quick Information</h1>
+
+<p>Electrical • Electronics • CCTV • Solar</p>
+
+</div>
+
+</div>
+
 <div class="cart-bar" onclick="toggleCart()">
-    🛒 Cart: <span id="cart-count">0</span> item(s)
-</div>
-<div id="cart-box" class="cart-box" style="display:none;">
-    <h3>🛒 Shopping Cart</h3>
 
-    <ul id="cart-items"></ul>
-
-    <h3>Total: ₹<span id="cart-total">0</span></h3>
-
-    <button class="order-btn" onclick="sendWhatsAppOrder()">
-    Order via WhatsApp
-</button>
-</div>
-<div class="logo-header">
-
-    <img src="images/logo.png" alt="Quick Information Logo">
-
-    <div>
-
-        <h1>Quick Information</h1>
-
-        <p>Electrical • Electronics • CCTV • Solar</p>
-
-    </div>
+🛒 Cart
+<span id="cart-count">0</span>
 
 </div>
-<div class="top-menu">
+
+</div>
+
+<nav class="menu">
 
 <a href="#">Home</a>
 
 <a href="#products">Products</a>
 
+<a href="#about">About</a>
+
 <a href="#contact">Contact</a>
 
-<a href="https://wa.me/918509727933">WhatsApp</a>
+<a href="https://wa.me/918509727933" target="_blank">
+WhatsApp
+</a>
+
+</nav>
+
+</header>
+
+<!-- ========================= -->
+<!-- Shopping Cart -->
+<!-- ========================= -->
+
+<div id="cart-box" class="cart-box">
+
+<h2>🛒 Shopping Cart</h2>
+
+<ul id="cart-items"></ul>
+
+<div class="cart-total">
+
+Total :
+₹<span id="cart-total">0</span>
 
 </div>
-</header>
+
+<button class="order-btn"
+onclick="sendWhatsAppOrder()">
+
+Order via WhatsApp
+
+</button>
+
+</div>
+
+<!-- ========================= -->
+<!-- Banner Slider -->
+<!-- ========================= -->
+
 <section class="slider">
 
-    <img class="slide active" src="images/banner1.jpg">
+<img src="images/banner1.jpg"
+class="slide active">
 
-    <img class="slide" src="images/banner2.jpg">
+<img src="images/banner2.jpg"
+class="slide">
 
-    <img class="slide" src="images/banner3.jpg">
+<img src="images/banner3.jpg"
+class="slide">
 
-    <img class="slide" src="images/banner4.jpg">
+<img src="images/banner4.jpg"
+class="slide">
 
 </section>
 
+<!-- ========================= -->
+<!-- Search -->
+<!-- ========================= -->
 
+<section class="search-section">
 
-<section id="products" class="products">
-<div class="category-buttons">
+<h2>Find Your Product</h2>
+
+<input
+
+type="text"
+
+id="search"
+
+placeholder="🔍 Search Product..."
+
+onkeyup="searchProducts()"
+
+>
+
+</section>
+
+<!-- ========================= -->
+<!-- Category -->
+<!-- ========================= -->
+
+<section class="category-section">
 
 <button onclick="filterCategory('all')">
 All
 </button>
 
-<button onclick="filterCategory('electrical')">Electrical 
+<button onclick="filterCategory('electrical')">
+Electrical
+</button>
+
+<button onclick="filterCategory('electronics')">
+Electronics
 </button>
 
 <button onclick="filterCategory('lights')">
@@ -110,315 +160,295 @@ Lights
 CCTV
 </button>
 
-<button onclick="filterCategory('electronics')">
-Electronics
-</button>
-
 <button onclick="filterCategory('solar')">
 Solar
 </button>
 
-</div>
+</section>
+
+<!-- ========================= -->
+<!-- Product Section -->
+<!-- ========================= -->
+
+<section id="products" class="products">
 
 <h2>Our Products</h2>
-<input
-    type="text"
-    id="search"
-    placeholder="🔍 Search products..."
-    onkeyup="searchProducts()">
+
 <div class="product-grid">
 
-
-
+<!-- Product 1 -->
 
 <div class="product-card" data-category="lights">
 
-<img src="images/bulb9w.jpg"
-alt="9W Ultra LED Bulb"
-
-onclick="openPopup(
-'9W Ultra LED Bulb',
-50,
-'images/bulb9w.jpg',
-'9W Energy Saving LED Bulb'
-)">
+<img src="images/bulb9w.jpg" alt="9W Ultra LED Bulb">
 
 <h3>9W Ultra LED Bulb</h3>
 
-<p>₹50</p>
+<p class="price">₹50</p>
 
 <span class="stock">🟢 In Stock</span>
 
-<button onclick="addToCart('9W Ultra LED Bulb',50,'images/bulb9w.jpg')">
-🛒 Add to Cart
+<div class="product-btns">
+
+<button onclick="openPopup(
+'9W Ultra LED Bulb',
+50,
+'images/bulb9w.jpg',
+'Energy Saving 9W LED Bulb'
+)">
+View
+</button>
+
+<button onclick="addToCart(
+'9W Ultra LED Bulb',
+50,
+'images/bulb9w.jpg'
+)">
+🛒 Add
 </button>
 
 </div>
 
+</div>
+
+<!-- Product 2 -->
+
 <div class="product-card" data-category="lights">
 
-<img src="images/philips.jpg" alt="Philips AC/DC Bulb"
-
-onclick="openPopup(
-'Philips AC/DC Bulb',
-300,
-'images/philips.jpg',
-'Energy Saving AC/DC LED Bulb'
-)">
+<img src="images/philips.jpg">
 
 <h3>Philips AC/DC Bulb</h3>
 
-<p>₹300</p>
+<p class="price">₹300</p>
 
 <span class="stock">🟢 In Stock</span>
 
-<button onclick="addToCart('Philips AC/DC Bulb',300,'images/philips.jpg')">
-🛒 Add to Cart
-</button>
+<div class="product-btns">
 
-</div>
-
-<div class="product-card" data-category="lights">
-
-<img src="images/oreva.jpg" alt="Oreva AC/DC Bulb"
-
-onclick="openPopup(
-'Oreva AC/DC Bulb',
-250,
-'images/oreva.jpg',
-'Energy Saving AC/DC LED Bulb'
+<button onclick="openPopup(
+'Philips AC/DC Bulb',
+300,
+'images/philips.jpg',
+'Original Philips Rechargeable Bulb'
 )">
-
-<h3>Oreva AC/DC Bulb</h3>
-
-<p>₹250</p>
-
-<span class="stock">🟢 In Stock</span>
-
-<button onclick="addToCart('Oreva AC/DC Bulb',250,'images/oreva.jpg')">
-🛒 Add to Cart
+View
 </button>
 
-</div>
-
-<div class="product-card" data-category="lights">
-
-<img src="images/t5tube.jpg" alt="20W T5 Tube Light"
-
-onclick="openPopup(
-'20W T5 Tube light',
-120,
-'images/t5tube.jpg',
-'20W Energy Saving LED Tube Light'
+<button onclick="addToCart(
+'Philips AC/DC Bulb',
+300,
+'images/philips.jpg'
 )">
-
-<h3>20W T5 Tube Light</h3>
-
-<p>₹120</p>
-
-<span class="stock">🟢 In Stock</span>
-
-<button onclick="addToCart('20W T5 Tube Light',120,'images/t5tube.jpg')">
-🛒 Add to Cart
+🛒 Add
 </button>
 
-
-
-
-
+</div>
 
 </div>
+
+<!-- Product 3 -->
 
 <div class="product-card" data-category="electronics">
 
-<img src="images/555motor.jpg" alt="555 Motor"
-
-onclick="openPopup(
-'555 Motor',
-110,
-'images/555motor.jpg',
-'555 high speed DC motor'
-)">
+<img src="images/555motor.jpg">
 
 <h3>555 Motor</h3>
 
-<p>₹110</p>
+<p class="price">₹110</p>
 
 <span class="stock">🟢 In Stock</span>
 
-<button onclick="addToCart('555 Motor',110,'images/555motor.jpg')">
-🛒 Add to Cart
+<div class="product-btns">
+
+<button onclick="openPopup(
+'555 Motor',
+110,
+'images/555motor.jpg',
+'High Speed DC Motor'
+)">
+View
 </button>
 
-
-
-
-
-
-</div>
-
-
-<div class="product-card" data-category="cctv">
-
-<img src="images/adapter12v2a.jpg" alt="12V 2A Adapter"
-
-onclick="openPopup(
-'12V 2A Adapter',
-180,
-'images/adapter12v2a.jpg',
-'12v 2a power adaptor'
+<button onclick="addToCart(
+'555 Motor',
+110,
+'images/555motor.jpg'
 )">
-
-<h3>12V 2A Adapter</h3>
-
-<p>₹180</p>
-
-<span class="stock">🟢 In Stock</span>
-
-<button onclick="addToCart('12V 2A Adapter',180,'images/adapter12v2a.jpg')">
-🛒 Add to Cart
+🛒 Add
 </button>
 
 </div>
 
-<div class="product-card" data-category="cctv">
-
-<img src="images/smps12v5a.jpg" alt="12V 5A SMPS"
-
-onclick="openPopup(
-'12V 5A SMPS',
-580,
-'images/smps12v5a.jpg',
-'12v 5A CCTV SMPS'
-)">
-
-<h3>12V 5A SMPS</h3>
-
-<p>₹580</p>
-
-<span class="stock">🟢 In Stock</span>
-
-<button onclick="addToCart('12V 5A SMPS',580,'images/smps12v5a.jpg')">
-🛒 Add to Cart
-</button>
-
 </div>
 
+<!-- Product 4 -->
+
 <div class="product-card" data-category="cctv">
 
-<img src="images/dvr4ch.jpg" alt="4 Channel DVR"
-
-onclick="openPopup(
-'4 channel DVR',
-2950,
-'images/dvr4ch.jpg',
-'DVR 4 Channel'
-)">
+<img src="images/dvr4ch.jpg">
 
 <h3>4 Channel DVR</h3>
 
-<p>₹2950</p>
+<p class="price">₹2950</p>
 
 <span class="stock">🟢 In Stock</span>
 
-<button onclick="addToCart('4 Channel DVR',2950,'images/dvr4ch.jpg')">
-🛒 Add to Cart
-</button>
+<div class="product-btns">
 
-</div>
-
-<div class="product-card" data-category="cctv">
-
-<img src="images/monitor19.jpg" alt="19 Inch Monitor"
-
-onclick="openPopup(
-'Monitor 19 inch',
-2450,
-'images/monitor19.jpg',
-'19 inch monitor'
+<button onclick="openPopup(
+'4 Channel DVR',
+2950,
+'images/dvr4ch.jpg',
+'4 Channel CCTV DVR'
 )">
-
-<h3>19 Inch Monitor</h3>
-
-<p>₹2450</p>
-
-<span class="stock">🟢 In Stock</span>
-
-<button onclick="addToCart('19 Inch Monitor',2450,'images/monitor19.jpg')">
-🛒 Add to Cart
+View
 </button>
 
-</div>
-
-<div class="product-card" data-category="cctv">
-
-<img src="images/cable3plus1.jpg" alt="3+1 CCTV Cable"
-
-onclick="openPopup(
-'3+1 CCTV cable',
-1280,
-'images/cable3plus1.jpg',
-'Copper CCTV cable'
+<button onclick="addToCart(
+'4 Channel DVR',
+2950,
+'images/dvr4ch.jpg'
 )">
+🛒 Add
+</button>
 
-<h3>3+1 CCTV Cable</h3>
+</div>
 
-<p>₹1280</p>
+</div>
 
-<span class="stock">🟢 In Stock</span>
+<!-- এখানেই ভবিষ্যতে নতুন Product শুধু Copy-Paste করবেন -->
 
-<button onclick="addToCart('3+1 CCTV Cable',1280,'images/cable3plus1.jpg')">
+</div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Product Popup -->
+<!-- ========================= -->
+
+<div id="product-popup" class="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">&times;</span>
+
+<img id="popup-image" src="" alt="Product Image">
+
+<h2 id="popup-title"></h2>
+
+<h3 id="popup-price"></h3>
+
+<p id="popup-description"></p>
+
+<div class="popup-buttons">
+
+<button id="popup-cart">
 🛒 Add to Cart
 </button>
 
-
+<button id="popup-buy">
+Buy on WhatsApp
+</button>
 
 </div>
+
+</div>
+
+</div>
+
+<!-- ========================= -->
+<!-- About -->
+<!-- ========================= -->
+
+<section id="about" class="about">
+
+<h2>Why Choose Us?</h2>
+
+<div class="about-box">
+
+<p>✔ Genuine Electrical Products</p>
+
+<p>✔ Electronics Products</p>
+
+<p>✔ CCTV Products</p>
+
+<p>✔ Solar Products</p>
+
+<p>✔ Best Price Guarantee</p>
+
+<p>✔ Trusted Local Seller</p>
+
+</div>
+
 </section>
 
-<section class="about">
-    <h2>Why Choose Us?</h2>
+<!-- ========================= -->
+<!-- Contact -->
+<!-- ========================= -->
 
-    <p>
-        ✔ Genuine Electrical and Electronics Products<br>
-        ✔ CCTV & Solar Products<br>
-        ✔ Best Price<br>
-        ✔ Trusted Local Seller
-    </p>
+<section id="contact" class="contact">
+
+<h2>Contact Us</h2>
+
+<p>📞 Mobile : 8509727933</p>
+
+<p>💬 WhatsApp : 8509727933</p>
+
+<p>📍 Gobardanga, Ichapur, North 24 Parganas</p>
+
+<a class="contact-btn"
+href="tel:+918509727933">
+
+📞 Call Now
+
+</a>
+
+<a class="whatsapp-btn"
+target="_blank"
+href="https://wa.me/918509727933">
+
+💬 WhatsApp
+
+</a>
+
 </section>
 
-
-<section id="contact" class="contact-us">
-    <h2>Contact Us</h2>
-
-    <p>📞 8509727933</p>
-<p><b>📱 WhatsApp:</b> 8509727933</p>
-
-    <p>📍 Gobardanga, Ichapur, West Bengal - 743252</p>
-
-    <a class="call-btn" href="tel:+918509727933">Call Now</a>
-
-    <a class="wa-btn" href="https://wa.me/918509727933">
-        WhatsApp Now
-    </a>
-
-</section>
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
 
 <footer>
 
-<p>© 2026 Quick Information</p>
+<h3>Quick Information</h3>
 
-<p>Electrical | Electronics | CCTV | Solar</p>
+<p>
+Electrical | Electronics | CCTV | Solar
+</p>
+
+<p>
+
+© 2026 All Rights Reserved
+
+</p>
 
 </footer>
 
-<script src="script.js"></script>
+<!-- Floating WhatsApp -->
 
-<a href="https://wa.me/918509727933?text=Hello, I want to order a product."
-   class="floating-whatsapp"
-   target="_blank">
-   💬 WhatsApp
+<a
+
+href="https://wa.me/918509727933"
+
+target="_blank"
+
+class="floating-whatsapp">
+
+💬
+
 </a>
 
+<script src="script.js"></script>
+
 </body>
+
 </html>

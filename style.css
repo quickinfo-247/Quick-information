@@ -1034,3 +1034,31 @@ background:#0d47a1;
 transform:scale(1.08);
 
 }
+
+/* ===========================
+Offer Bar
+=========================== */
+
+.offer-bar{
+
+background:#ff9800;
+
+color:#fff;
+
+font-size:18px;
+
+font-weight:bold;
+
+padding:12px 0;
+
+margin:15px 0;
+
+box-shadow:0 3px 10px rgba(0,0,0,.2);
+
+}
+
+.offer-bar marquee{
+
+width:100%;
+
+}

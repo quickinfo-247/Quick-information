@@ -2,39 +2,6 @@
 // Quick Information Script.js
 // Part 1
 // ===================================
-// ===========================
-// Firebase Import
-// ===========================
-
-import { app } from "./firebase.js";
-
-import {
-    getFirestore,
-    collection,
-    getDocs
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
-const db = getFirestore(app);
-// ===========================
-// Load Products From Firebase
-// ===========================
-
-async function loadProducts(){
-
-    const snapshot = await getDocs(
-        collection(db,"products")
-    );
-
-    console.log(
-        "Products Found :",
-        snapshot.size
-    );
-
-}
-
-// Load Cart
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
 // -----------------------------
 // Search Products
 // -----------------------------
@@ -368,22 +335,3 @@ window.onload = function () {
     startSlider();
 
 };
-// ===========================
-// Start Firebase
-// ===========================
-
-window.addEventListener("DOMContentLoaded", async () => {
-
-    try {
-
-        await loadProducts();
-
-        console.log("Firebase Connected Successfully ✅");
-
-    } catch (error) {
-
-        console.log("Firebase Error :", error);
-
-    }
-
-});

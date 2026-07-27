@@ -33,3 +33,4 @@ const products = [
 }
 
 ];
+export { products };

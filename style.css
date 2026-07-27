@@ -1062,3 +1062,63 @@ box-shadow:0 3px 10px rgba(0,0,0,.2);
 width:100%;
 
 }
+
+/* ===========================
+Trust Section
+=========================== */
+
+.trust-section{
+
+padding:30px 15px;
+
+background:#f7f9fc;
+
+}
+
+.trust-box{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+
+gap:15px;
+
+}
+
+.trust-item{
+
+background:#fff;
+
+padding:20px;
+
+text-align:center;
+
+border-radius:15px;
+
+box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+transition:.3s;
+
+}
+
+.trust-item:hover{
+
+transform:translateY(-5px);
+
+}
+
+.trust-item h3{
+
+margin:10px 0;
+
+color:#1565c0;
+
+}
+
+.trust-item p{
+
+font-size:14px;
+
+color:#555;
+
+}

@@ -427,3 +427,37 @@ window.decreaseQty = decreaseQty;
 window.removeItem = removeItem;
 
 console.log("Quick Information V3 Loaded Successfully");
+
+// ===========================
+// Back To Top Button
+// ===========================
+
+const topBtn = document.getElementById("topBtn");
+
+window.onscroll = function(){
+
+if(document.body.scrollTop > 300 ||
+
+document.documentElement.scrollTop > 300){
+
+topBtn.style.display = "block";
+
+}else{
+
+topBtn.style.display = "none";
+
+}
+
+}
+
+function topFunction(){
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+}

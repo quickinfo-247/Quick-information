@@ -234,3 +234,34 @@ font-weight:bold;
 min-width:25px;
 text-align:center;
 }
+
+.cart-top{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:10px;
+}
+
+.cart-image{
+width:55px;
+height:55px;
+object-fit:contain;
+border:1px solid #ddd;
+border-radius:8px;
+background:white;
+padding:4px;
+}
+
+.cart-info{
+flex:1;
+}
+
+.cart-info p{
+margin-top:5px;
+color:#1565C0;
+font-weight:bold;
+}
+
+.cart-item{
+margin-bottom:15px;
+}

@@ -58,7 +58,7 @@ price:2450,
 image:"images/monitor19.jpg",
 description:"HD display monitor for CCTV system.",
 stock:"Available"
-}
+},
 
 {
 id:7,

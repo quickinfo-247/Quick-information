@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Information</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Header -->
+
+<header>
+
+<div class="logo-area">
+
+<img src="images/logo.png" class="logo">
+
+<div>
+
+<h1>Quick Information</h1>
+
+<p>Electrical • Electronics • CCTV • Solar</p>
+
+</div>
+
+</div>
+
+<div class="cart-btn">
+
+🛒 Cart (<span id="cart-count">0</span>)
+
+</div>
+
+</header>
+
+<!-- Address -->
+
+<section class="address">
+
+📍 Gobardanga, Ichapur,
+North 24 Parganas
+
+</section>
+
+<!-- Category -->
+
+<section class="categories">
+
+<button onclick="filterProducts('All')">All</button>
+
+<button onclick="filterProducts('Electrical')">Electrical</button>
+
+<button onclick="filterProducts('Electronics')">Electronics</button>
+
+<button onclick="filterProducts('CCTV')">CCTV</button>
+
+<button onclick="filterProducts('Solar')">Solar</button>
+
+</section>
+
+<!-- Products -->
+
+<section>
+
+<div id="product-list" class="products">
+
+</div>
+
+</section>
+
+<!-- Cart -->
+
+<div id="cart-box" class="cart-box">
+
+<h2>Your Cart</h2>
+
+<div id="cart-items"></div>
+
+<h3>
+
+Total : ₹<span id="cart-total">0</span>
+
+</h3>
+
+<button onclick="sendWhatsAppOrder()">
+
+💬 Order on WhatsApp
+
+</button>
+
+</div>
+
+<script src="products.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>

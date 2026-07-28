@@ -48,22 +48,6 @@ onclick="addToCart(${product.id})">
 
 </button>
 
-<button class="buy-btn"
-
-onclick="buyNow(${product.id})">
-
-💬 Buy WhatsApp
-
-</button>
-
-<button class="call-btn"
-
-onclick="callNow('${product.phone}')">
-
-📞 Call Now
-
-</button>
-
 </div>
 
 `;

@@ -485,6 +485,7 @@ window.onclick = function(event){
 window.onload = function(){
 
     loadProducts();
+    loadFeaturedProducts();
     updateCart();
     startSlider();
 

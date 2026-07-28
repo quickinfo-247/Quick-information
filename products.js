@@ -32,7 +32,7 @@ image:"images/555motor.jpg"
 name:"12V 2A Adapter",
 price:180,
 category:"Electronics",
-image:"images/adapter2a.jpg"
+image:"images/adapter12v2a.jpg"
 },
 
 {

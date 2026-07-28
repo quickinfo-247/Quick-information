@@ -55,7 +55,7 @@ const products = [
     category:"Electronics",
     price:580,
     oldPrice:650,
-    image:"images/smps5a.jpg",
+    image:"images/smps12v5a.jpg",
     phone:"8509727933"
 },
 
@@ -93,7 +93,7 @@ const products = [
     category:"Solar",
     price:1200,
     oldPrice:1450,
-    image:"images/solar20w.jpg",
+    image:"images/t5tube.jpg",
     phone:"8509727933"
 }
 

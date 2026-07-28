@@ -18,7 +18,7 @@ category:"Lights",
 price:300,
 image:"images/philips.jpg",
 description:"Philips emergency AC DC LED bulb.",
-stock:"Available"
+stock:"Out of Stock"
 },
 
 {
@@ -28,7 +28,7 @@ category:"Lights",
 price:250,
 image:"images/oreva.jpg",
 description:"Rechargeable emergency LED bulb.",
-stock:"Out of Stock"
+stock:"Available"
 },
 
 {
@@ -78,6 +78,17 @@ category:"Electronics",
 price:180,
 image:"images/adapter12v2a.jpg",
 description:"High quality adaptor for CCTV camera and power supply.",
+stock:"Available"
+},
+
+{
+id:9,
+name:"12V 5A SMPS",
+category:"CCTV",
+price:580,
+oldPrice:650,
+image:"images/smps12v5a.jpg",
+description:"High quality SMPS for CCTV camera.",
 stock:"Available"
 }
 

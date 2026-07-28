@@ -3,7 +3,7 @@
 // script.js (Part 1)
 // ===============================
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = [];
 
 let currentCategory = "All";
 
@@ -13,13 +13,13 @@ let currentCategory = "All";
 
 function showProducts(productList){
 
-const container=document.getElementById("productContainer");
+const container = document.getElementById("productContainer");
 
 container.innerHTML="";
 
 productList.forEach(product=>{
 
-container.innerHTML += `
+container.innerHTML+=`
 
 <div class="product-card">
 
@@ -27,26 +27,40 @@ container.innerHTML += `
 
 <h3>${product.name}</h3>
 
-${product.oldPrice ? `<div class="old-price">₹${product.oldPrice}</div>` : ""}
+${
+product.oldPrice ?
+
+`<div class="old-price">₹${product.oldPrice}</div>`
+
+:
+
+""
+
+}
 
 <div class="price">₹${product.price}</div>
 
-<div class="stock ${product.stock ? "in-stock" : "out-stock"}">
-${product.stock ? "🟢 In Stock" : "🔴 Out of Stock"}
-</div>
-
 <button class="add-cart"
-onclick="addToCart(${product.id})"
-${product.stock === false ? "disabled" : ""}>
+
+onclick="addToCart(${product.id})">
 
 🛒 Add To Cart
 
 </button>
 
-<button class="view-btn"
-onclick="viewDetails(${product.id})">
+<button class="buy-btn"
 
-ℹ️ Details
+onclick="buyNow(${product.id})">
+
+💬 Buy WhatsApp
+
+</button>
+
+<button class="call-btn"
+
+onclick="callNow('${product.phone}')">
+
+📞 Call Now
 
 </button>
 
@@ -55,48 +69,6 @@ onclick="viewDetails(${product.id})">
 `;
 
 });
-
-}
-
-// ===============================
-// Product Details Popup
-// ===============================
-
-let currentProductId = null;
-
-// Open Popup
-function viewDetails(id){
-
-    const product = products.find(p => p.id === id);
-
-    currentProductId = id;
-
-    document.getElementById("popupImage").src = product.image;
-
-    document.getElementById("popupName").innerText = product.name;
-
-    document.getElementById("popupPrice").innerText = product.price;
-
-    document.getElementById("popupDescription").innerText =
-    product.description || "No description available.";
-
-    document.getElementById("productPopup").style.display = "block";
-
-}
-
-// Close Popup
-function closeProductPopup(){
-
-    document.getElementById("productPopup").style.display = "none";
-
-}
-
-// Add To Cart From Popup
-function popupAddToCart(){
-
-    addToCart(currentProductId);
-
-    closeProductPopup();
 
 }
 
@@ -123,7 +95,6 @@ item=>item.category===category
 );
 
 showProducts(filtered);
-
 
 }
 
@@ -208,13 +179,9 @@ searchProducts
 // ----------------------------
 
 showProducts(products);
-${product.stock
-? `<div class="stock in-stock">🟢 In Stock</div>`
-: `<div class="stock out-stock">🔴 Out of Stock</div>`
-}
 
 // ===============================
-// Cart System
+// Cart System (Part 2)
 // ===============================
 
 // Add To Cart
@@ -243,7 +210,7 @@ function addToCart(id){
 
 // Update Cart
 function updateCart(){
-localStorage.setItem("cart", JSON.stringify(cart));
+
     const cartItems = document.getElementById("cartItems");
 
     const cartCount = document.getElementById("cartCount");
@@ -263,53 +230,31 @@ localStorage.setItem("cart", JSON.stringify(cart));
 
         cartItems.innerHTML += `
 
-<div class="cart-item">
+        <div class="cart-item">
 
-<div class="cart-top">
+            <b>${item.name}</b><br>
 
-<img src="${item.image}" class="cart-image">
+            ₹${item.price} × ${item.qty}
 
-<div class="cart-info">
+            <br>
 
-<b>${item.name}</b>
+            <button onclick="removeCart(${item.id})">
 
-<p>₹${item.price}</p>
+            ❌ Remove
 
-</div>
+            </button>
 
-</div>
+            <hr>
 
-<div class="qty-box">
+        </div>
 
-<button onclick="decreaseQty(${item.id})">➖</button>
-
-<span>${item.qty}</span>
-
-<button onclick="increaseQty(${item.id})">➕</button>
-
-</div>
-
-<p><b>Subtotal : ₹${item.price * item.qty}</b></p>
-
-<button onclick="removeCart(${item.id})">
-
-🗑 Remove
-
-</button>
-
-<hr>
-
-</div>
-
-`;
+        `;
 
     });
 
     cartTotal.innerText = total;
 
     cartCount.innerText = count;
- 
-    document.getElementById("totalItems").innerText = count;
 
 }
 
@@ -339,40 +284,6 @@ function toggleCart(){
 
 }
 
-function increaseQty(id){
-
-    const item = cart.find(p=>p.id===id);
-
-    if(item){
-
-        item.qty++;
-
-        updateCart();
-
-    }
-
-}
-
-function decreaseQty(id){
-
-    const item = cart.find(p=>p.id===id);
-
-    if(!item) return;
-
-    if(item.qty>1){
-
-        item.qty--;
-
-    }else{
-
-        cart = cart.filter(p=>p.id!==id);
-
-    }
-
-    updateCart();
-
-}
-
 // Cart Button Click
 document
 
@@ -386,6 +297,40 @@ toggleCart
 
 );
 
+// ===============================
+// Buy Now (WhatsApp)
+// ===============================
+
+function buyNow(id){
+
+    const product = products.find(p => p.id === id);
+
+    const message =
+`Hello,
+
+I want to buy
+
+${product.name}
+
+Price : ₹${product.price}`;
+
+    window.open(
+        "https://wa.me/918509727933?text=" +
+        encodeURIComponent(message),
+        "_blank"
+    );
+
+}
+
+// ===============================
+// Call Now
+// ===============================
+
+function callNow(phone){
+
+    window.location.href = "tel:" + phone;
+
+}
 
 // ===============================
 // WhatsApp Cart Order
@@ -410,14 +355,9 @@ document
     cart.forEach(item=>{
 
         message +=
-
-`🛒 ${item.name}
-
+`${item.name}
 Qty : ${item.qty}
-
-Subtotal : ₹${item.price * item.qty}
-
-------------------------
+Price : ₹${item.price * item.qty}
 
 `;
 
@@ -425,31 +365,13 @@ Subtotal : ₹${item.price * item.qty}
 
     });
 
-    message +=
-
-`Total Items : ${count}
-
-Grand Total : ₹${total}
-
-Thank You.`;
+    message += "Total : ₹" + total;
 
     window.open(
         "https://wa.me/918509727933?text=" +
         encodeURIComponent(message),
         "_blank"
     );
-
-});
-
-window.addEventListener("click",function(e){
-
-const popup=document.getElementById("productPopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
 
 });
 
@@ -460,15 +382,3 @@ popup.style.display="none";
 showProducts(products);
 
 updateCart();
-
-window.onclick=function(e){
-
-const popup=document.getElementById("cartPopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-}

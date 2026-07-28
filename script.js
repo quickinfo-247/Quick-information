@@ -40,9 +40,10 @@ product.oldPrice ?
 
 <div class="price">₹${product.price}</div>
 
-<button class="add-cart"
-
-onclick="addToCart(${product.id})">
+<button
+class="add-cart"
+onclick="addToCart(${product.id})"
+${!product.stock ? "disabled" : ""}>
 
 🛒 Add To Cart
 

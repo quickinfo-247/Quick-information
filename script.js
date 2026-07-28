@@ -16,7 +16,8 @@ productContainer.innerHTML += `
 
 <div class="product-card">
 
-<img src="${product.image}" 
+<img src="${product.image}"
+onclick="openImage('${product.image}')"
 onerror="this.src='images/no-image.png'">
 
 <h3>${product.name}</h3>
@@ -255,4 +256,13 @@ function closeCart(){
 
 document.getElementById("cartPopup").style.display="none";
 
+}
+
+function openImage(src){
+    document.getElementById("popupImage").src = src;
+    document.getElementById("imagePopup").style.display = "flex";
+}
+
+function closeImage(){
+    document.getElementById("imagePopup").style.display = "none";
 }

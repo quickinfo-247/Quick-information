@@ -119,25 +119,34 @@ container.innerHTML += `
 
 <h3>${product.name}</h3>
 
-<p>
+<div class="discount">
 
-<del>₹${product.oldPrice}</del>
+${Math.round(
+((product.oldPrice-product.price)
+/product.oldPrice)*100
+)}% OFF
+
+</div>
+
+<p class="old-price">
+
+₹${product.oldPrice}
 
 </p>
 
-<h2 style="color:#1565c0;">
+<p class="new-price">
 
 ₹${product.price}
 
-</h2>
+</p>
 
-<p>
+<p class="rating">
 
 ⭐ ${product.rating}/5
 
 </p>
 
-<p>
+<p class="stock ${product.stock.toLowerCase().replace(" ","")}">
 
 ${product.stock}
 

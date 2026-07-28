@@ -7,20 +7,8 @@ const products = [
     price:50,
     oldPrice:70,
     image:"images/bulb9w.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
-
 
 {
     id:2,
@@ -29,18 +17,7 @@ description:
     price:300,
     oldPrice:350,
     image:"images/philips.jpg",
-    stock:false,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -50,18 +27,7 @@ description:
     price:250,
     oldPrice:290,
     image:"images/oreva.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -70,18 +36,7 @@ description:
     category:"Electronics",
     price:110,
     image:"images/555motor.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -90,18 +45,7 @@ description:
     category:"Electronics",
     price:180,
     image:"images/adapter12v2a.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -110,19 +54,8 @@ description:
     category:"Electronics",
     price:580,
     oldPrice:650,
-    image:"images/smps12v5a.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    image:"images/smps5a.jpg",
+    phone:"8509727933"
 },
 
 {
@@ -132,19 +65,7 @@ description:
     price:2950,
     oldPrice:3300,
     image:"images/dvr4ch.jpg",
-    stock:true,
-
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -153,18 +74,7 @@ description:
     category:"CCTV",
     price:2450,
     image:"images/monitor19.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -173,18 +83,7 @@ description:
     category:"CCTV",
     price:1280,
     image:"images/cable3plus1.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    phone:"8509727933"
 },
 
 {
@@ -193,19 +92,8 @@ description:
     category:"Solar",
     price:1200,
     oldPrice:1450,
-    image:"images/t5tube.jpg",
-    stock:true,
-description:
-
-`✓ 4 Channel DVR
-
-✓ H.265 Compression
-
-✓ HDMI Output
-
-✓ Mobile Viewing
-
-✓ 1 Year Warranty`
+    image:"images/solar20w.jpg",
+    phone:"8509727933"
 }
 
 ];

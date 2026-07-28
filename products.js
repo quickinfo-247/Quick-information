@@ -101,6 +101,50 @@ oldPrice:150,
 image:"images/t5tube.jpg",
 description:"Energy saving LED Tube Light. Low power consumption. 4 feets",
 stock:"Available"
+},
+
+{
+id:11,
+name:"BNC connector",
+category:"CCTV",
+price:18,
+oldPrice:25,
+image:"images/wirebnc.jpg",
+description:"Good BNC connector for CCTV camera.",
+stock:"Available"
+},
+
+{
+id:12,
+name:"DC Male Connector",
+category:"CCTV",
+price:12,
+oldPrice:17,
+image:"images/dcmale.jpg",
+description:"DC Male Connector for CCTV camera power connection.",
+stock:"Available"
+},
+
+{
+id:13,
+name:"DC Female Connector",
+category:"CCTV",
+price:18,
+oldPrice:25,
+image:"images/dcfemale.jpg",
+description:"DC female connector for using power distribution and connection purpose.",
+stock:"Available"
+},
+
+{
+id:14,
+name:"PVC Box 4/4",
+category:"CCTV",
+price:22,
+oldPrice:30,
+image:"images/44box.jpg",
+description:"Best PVC Box for CCTV installation.",
+stock:"Available"
 }
 
 ];

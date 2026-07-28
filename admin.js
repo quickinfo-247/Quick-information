@@ -315,3 +315,59 @@ window.onload = function(){
     }
 
 }
+
+// ===========================
+// Page Navigation
+// ===========================
+
+function showPage(page){
+
+// সব Section Hide
+
+document.querySelector(".dashboard").style.display="none";
+
+document.querySelector(".product-form").style.display="none";
+
+document.querySelector(".product-list").style.display="none";
+
+// ভবিষ্যতের Settings Section
+
+const settings=document.getElementById("settings");
+
+if(settings){
+
+settings.style.display="none";
+
+}
+
+// কোন Page দেখাবে
+
+if(page==="dashboard"){
+
+document.querySelector(".dashboard").style.display="grid";
+
+}
+
+else if(page==="addproduct"){
+
+document.querySelector(".product-form").style.display="block";
+
+}
+
+else if(page==="allproducts"){
+
+document.querySelector(".product-list").style.display="block";
+
+}
+
+else if(page==="settings"){
+
+if(settings){
+
+settings.style.display="block";
+
+}
+
+}
+
+}

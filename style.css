@@ -136,11 +136,11 @@ color:white;
 /* Cart Box */
 
 .cart-box{
-background: sky blue;
-margin:10px;
-padding:10px;
-border-radius:5px;
-box-shadow:0 2px 10px rgba(0,0,0,.12);
+background:white;
+margin:7px;
+padding:7px;
+border-radius:4px;
+box-shadow:0 2px 8px rgba(0,0,0,.10);
 }
 
 .cart-box button{

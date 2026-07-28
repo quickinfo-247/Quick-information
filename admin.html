@@ -117,10 +117,26 @@ type="number"
 id="pprice"
 placeholder="Price">
 
+<label>Product Image</label>
+
 <input
-type="text"
+type="file"
 id="pimage"
-placeholder="Image Name (Example: bulb9w.jpg)">
+accept="image/*"
+onchange="previewImage(event)">
+
+<br><br>
+
+<img
+id="preview"
+src=""
+style="
+width:180px;
+display:none;
+border-radius:10px;
+border:1px solid #ddd;
+padding:8px;
+">
 
 <select id="pcategory">
 

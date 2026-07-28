@@ -55,7 +55,7 @@ id:6,
 name:"19 Inch Monitor",
 category:"Electronics",
 price:2450,
-image:"images/19monitor.jpg",
+image:"images/monitor19.jpg",
 description:"HD display monitor for CCTV system.",
 stock:"Available"
 }

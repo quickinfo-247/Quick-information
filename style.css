@@ -115,8 +115,8 @@ text-align:center;
 }
 
 .product-card img{
-width:160px;
-height:160px;
+width:140px;
+height:140px;
 object-fit:contain;
 margin-bottom:10px;
 }
@@ -465,9 +465,8 @@ margin-top:8px;
 }
 
 .view-btn{
-
-background:#444;
-
-color:white;
+    background:#607D8B;
+    color:white;
+}
 
 }

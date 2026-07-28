@@ -1268,3 +1268,49 @@ color:#ff9800;
 color:#e53935;
 
 }
+
+/* ===========================
+Popup Gallery
+=========================== */
+
+.popup-gallery{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+margin-top:15px;
+
+}
+
+.popup-gallery button{
+
+width:45px;
+
+height:45px;
+
+border:none;
+
+border-radius:50%;
+
+background:#1565c0;
+
+color:#fff;
+
+font-size:20px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.popup-gallery button:hover{
+
+background:#0d47a1;
+
+transform:scale(1.1);
+
+}

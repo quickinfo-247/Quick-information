@@ -470,3 +470,22 @@ margin-top:8px;
 }
 
 }
+
+.stock{
+margin:8px 0;
+font-weight:bold;
+font-size:14px;
+}
+
+.in-stock{
+color:#2E7D32;
+}
+
+.out-stock{
+color:#D32F2F;
+}
+
+.add-cart:disabled{
+background:#BDBDBD;
+cursor:not-allowed;
+}

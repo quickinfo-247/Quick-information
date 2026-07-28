@@ -4,94 +4,59 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quick Information</title>
-
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- Header -->
+<header class="header">
+    <div class="logo-area">
+        <img src="images/logo.png" alt="Logo" class="logo">
+        <div>
+            <h1>Quick Information</h1>
+            <p>Electrical • Electronics • CCTV • Solar</p>
+        </div>
+    </div>
 
-<header>
+    <div class="header-buttons">
+        <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+</header>
 
-<div class="logo-area">
+<section class="address">
+    📍 Gobardanga, Ichapur, North 24 Parganas
+</section>
 
-<img src="images/logo.png" class="logo">
+<section class="search-area">
+    <input type="text" id="searchBox" placeholder="Search Product...">
+</section>
 
-<div>
+<section class="category-area">
+    <button data-category="All">All</button>
+    <button data-category="Electrical">Electrical</button>
+    <button data-category="Electronics">Electronics</button>
+    <button data-category="CCTV">CCTV</button>
+    <button data-category="Solar">Solar</button>
+</section>
 
-<h1>Quick Information</h1>
+<section id="productContainer" class="product-container">
+</section>
 
-<p>Electrical • Electronics • CCTV • Solar</p>
+<!-- Cart Popup -->
 
-</div>
-
-</div>
-
-<div class="cart-btn">
-
-🛒 Cart (<span id="cart-count">0</span>)
-
-</div>
-<!-- Cart -->
-
-<div id="cart-box" class="cart-box">
+<div id="cartPopup" class="cart-popup">
 
 <h2>Your Cart</h2>
 
-<div id="cart-items"></div>
+<div id="cartItems"></div>
 
-<h3>
+<h3>Total : ₹<span id="cartTotal">0</span></h3>
 
-Total : ₹<span id="cart-total">0</span>
-
-<h3>
-<WhatsApp 8509727933>
-
-</button>
-
-</header>
-
-<!-- Contact us-->
-
-<section class="contact us">
-
-📍 Gobardanga, Ichapur,
-North 24 Parganas,743252
-
-</section>
-
-<!-- Category -->
-
-<section class="categories">
-
-<button onclick="filterProducts('All')">All</button>
-
-<button onclick="filterProducts('Electrical')">Electrical</button>
-
-<button onclick="filterProducts('Electronics')">Electronics</button>
-
-<button onclick="filterProducts('CCTV')">CCTV</button>
-
-<button onclick="filterProducts('Solar')">Solar</button>
-
-</section>
-
-<!-- Products -->
-
-<section>
-
-<div id="product-list" class="products">
-
-</div>
-
-</section>
-
+<button id="whatsappOrder">💬 Order on WhatsApp</button>
 
 </div>
 
 <script src="products.js"></script>
-
 <script src="script.js"></script>
 
 </body>

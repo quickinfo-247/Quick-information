@@ -145,6 +145,39 @@ oldPrice:30,
 image:"images/44box.jpg",
 description:"Best PVC Box for CCTV installation.",
 stock:"Available"
+},
+
+{
+id:15,
+name:"CR 2032 Battery",
+category:"CCTV",
+price:20,
+oldPrice:25,
+image:"images/cr2032.jpg",
+description:"Best for any motherboard.",
+stock:"Available"
+},
+
+{
+id:16,
+name:"CR 1220 Pin Type Battery",
+category:"CCTV",
+price:50,
+oldPrice:80,
+image:"images/cr1220pin.jpg",
+description:"Best for CCTV DVR motherboard.",
+stock:"Available"
+},
+
+{
+id:17,
+name:"CR 1220 Battery",
+category:"CCTV",
+price:20,
+oldPrice:30,
+image:"images/cr1220.jpg",
+description:"Best for CCTV motherboard.",
+stock:"Available"
 }
 
 ];

@@ -397,3 +397,36 @@ preview.style.display = "block";
 reader.readAsDataURL(file);
 
 }
+
+// ======================
+// Search Product
+// ======================
+
+function searchAdminProduct(){
+
+const text = document
+.getElementById("searchProduct")
+.value
+.toLowerCase();
+
+const rows = document.querySelectorAll("#productTable table tr");
+
+rows.forEach((row,index)=>{
+
+if(index===0) return;
+
+const name=row.cells[0].innerText.toLowerCase();
+
+if(name.includes(text)){
+
+row.style.display="";
+
+}else{
+
+row.style.display="none";
+
+}
+
+});
+
+}

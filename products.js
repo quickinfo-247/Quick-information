@@ -1,0 +1,73 @@
+const products = [
+
+{
+name:"9W Ultra LED Bulb",
+price:50,
+category:"Electrical",
+image:"images/bulb9w.jpg"
+},
+
+{
+name:"Philips AC DC Bulb",
+price:300,
+category:"Electrical",
+image:"images/philips.jpg"
+},
+
+{
+name:"Oreva AC DC Bulb",
+price:250,
+category:"Electrical",
+image:"images/oreva.jpg"
+},
+
+{
+name:"555 DC Motor",
+price:110,
+category:"Electronics",
+image:"images/motor555.jpg"
+},
+
+{
+name:"12V 2A Adapter",
+price:180,
+category:"Electronics",
+image:"images/adapter2a.jpg"
+},
+
+{
+name:"12V 5A SMPS",
+price:580,
+category:"Electronics",
+image:"images/smps5a.jpg"
+},
+
+{
+name:"4 Channel DVR",
+price:2950,
+category:"CCTV",
+image:"images/dvr.jpg"
+},
+
+{
+name:"19 Inch Monitor",
+price:2450,
+category:"CCTV",
+image:"images/monitor19.jpg"
+},
+
+{
+name:"3+1 CCTV Cable",
+price:1280,
+category:"CCTV",
+image:"images/cable.jpg"
+},
+
+{
+name:"20W Solar Light",
+price:1200,
+category:"Solar",
+image:"images/solar20w.jpg"
+}
+
+];

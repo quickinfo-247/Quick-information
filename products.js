@@ -90,6 +90,17 @@ oldPrice:650,
 image:"images/smps12v5a.jpg",
 description:"High quality SMPS for CCTV camera.",
 stock:"Available"
+},
+
+{
+id:10,
+name:"20W LED Tube Light",
+category:"Lights",
+price:110,
+oldPrice:150,
+image:"images/t5tube.jpg",
+description:"Energy saving LED Tube Light. Low power consumption. 4 feets",
+stock:"Available"
 }
 
 ];

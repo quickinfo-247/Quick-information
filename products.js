@@ -46,7 +46,7 @@ image:"images/smps5a.jpg"
 name:"4 Channel DVR",
 price:2950,
 category:"CCTV",
-image:"images/dvr.jpg"
+image:"images/dvr4ch.jpg"
 },
 
 {

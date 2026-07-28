@@ -4,7 +4,8 @@
 // ====================================
 
 // Admin Password
-const ADMIN_PASSWORD = "12345";
+let ADMIN_PASSWORD =
+localStorage.getItem("adminPassword") || "12345";
 
 // Product List
 let products = [];
@@ -428,5 +429,48 @@ row.style.display="none";
 }
 
 });
+
+}
+
+// ======================
+// Change Password
+// ======================
+
+function changePassword(){
+
+const oldPass =
+document.getElementById("oldPassword").value;
+
+const newPass =
+document.getElementById("newPassword").value;
+
+if(oldPass !== ADMIN_PASSWORD){
+
+alert("Current password is incorrect.");
+
+return;
+
+}
+
+if(newPass.length < 4){
+
+alert("Password must be at least 4 characters.");
+
+return;
+
+}
+
+ADMIN_PASSWORD = newPass;
+
+localStorage.setItem(
+"adminPassword",
+newPass
+);
+
+alert("Password changed successfully!");
+
+document.getElementById("oldPassword").value = "";
+
+document.getElementById("newPassword").value = "";
 
 }

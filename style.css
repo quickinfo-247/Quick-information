@@ -1184,3 +1184,87 @@ color:#555;
 color:#1565c0;
 
 }
+
+/* ===========================
+Price Design
+=========================== */
+
+.old-price{
+
+color:#888;
+
+text-decoration:line-through;
+
+font-size:15px;
+
+margin:5px 0;
+
+}
+
+.new-price{
+
+color:#1565c0;
+
+font-size:28px;
+
+font-weight:bold;
+
+margin:5px 0;
+
+}
+
+.discount{
+
+display:inline-block;
+
+background:#e53935;
+
+color:#fff;
+
+padding:5px 10px;
+
+border-radius:20px;
+
+font-size:13px;
+
+font-weight:bold;
+
+margin-bottom:10px;
+
+}
+
+.rating{
+
+color:#ff9800;
+
+font-weight:bold;
+
+margin-top:8px;
+
+}
+
+.stock{
+
+margin-top:8px;
+
+font-weight:bold;
+
+}
+
+.stock.in{
+
+color:#2e7d32;
+
+}
+
+.stock.limited{
+
+color:#ff9800;
+
+}
+
+.stock.out{
+
+color:#e53935;
+
+}

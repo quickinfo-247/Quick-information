@@ -124,12 +124,6 @@ item=>item.category===category
 
 showProducts(filtered);
 
-<button class="view-btn"
-onclick="viewDetails(${product.id})">
-
-ℹ️ Details
-
-</button>
 
 }
 
@@ -220,7 +214,7 @@ ${product.stock
 }
 
 // ===============================
-// Cart System (Part 2)
+// Cart System
 // ===============================
 
 // Add To Cart
@@ -447,6 +441,18 @@ Thank You.`;
 
 });
 
+window.addEventListener("click",function(e){
+
+const popup=document.getElementById("productPopup");
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+});
+
 // ===============================
 // Start Website
 // ===============================
@@ -466,15 +472,3 @@ popup.style.display="none";
 }
 
 }
-
-window.addEventListener("click",function(e){
-
-const popup=document.getElementById("productPopup");
-
-if(e.target===popup){
-
-popup.style.display="none";
-
-}
-
-});

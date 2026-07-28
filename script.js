@@ -228,7 +228,7 @@ message += `%0ATotal ₹${cartTotal.innerText}`;
 
 
 window.open(
-"https://wa.me/919163215683?text="+message
+"https://wa.me/918509727933?text="+message
 );
 
 }
@@ -241,7 +241,7 @@ let msg =
 `Order:%0A${name}%0APrice ₹${price}`;
 
 window.open(
-"https://wa.me/919163215683?text="+msg
+"https://wa.me/918509727933?text="+msg
 );
 
 }

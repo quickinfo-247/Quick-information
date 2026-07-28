@@ -546,15 +546,16 @@ cursor:pointer;
 }
 
 .desc-btn{
-    width:100%;
-    margin:8px 0;
-    padding:8px;
-    background:#007bff;
+    width:auto;
+    padding:6px 14px;
+    margin:8px auto;
+    display:block;
+    background:#1976d2;
     color:#fff;
     border:none;
-    border-radius:6px;
+    border-radius:20px;
+    font-size:13px;
     cursor:pointer;
-    font-size:14px;
 }
 
 .desc-btn:hover{

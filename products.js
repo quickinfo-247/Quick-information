@@ -4,6 +4,12 @@ const products = [
     name:"9W Ultra LED Bulb",
     price:50,
     image:"images/bulb9w.jpg",
+
+images:[
+"images/bulb9w.jpg",
+"images/bulb9w_2.jpg",
+"images/bulb9w_3.jpg"
+],
     category:"lights",
     description:"9W Energy Saving LED Bulb",
 

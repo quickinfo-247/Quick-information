@@ -483,3 +483,38 @@ font-size:16px;
 cursor:pointer;
 
 }
+
+.footer{
+
+    background:#0066cc;
+    color:white;
+    text-align:center;
+    padding:20px 10px;
+    margin-top:20px;
+    font-size:14px;
+
+}
+
+
+.footer h3{
+
+    font-size:20px;
+    margin-bottom:8px;
+
+}
+
+
+.footer p{
+
+    margin:5px 0;
+
+}
+
+
+.footer .copyright{
+
+    margin-top:12px;
+    font-size:12px;
+    opacity:0.9;
+
+}

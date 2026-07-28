@@ -7,7 +7,7 @@ const products = [
     price:50,
     oldPrice:70,
     image:"images/bulb9w.jpg",
-    phone:"8509727933"
+    stock:true
 },
 
 
@@ -18,7 +18,7 @@ const products = [
     price:300,
     oldPrice:350,
     image:"images/philips.jpg",
-    phone:"8509727933"
+    stock:false
 },
 
 {

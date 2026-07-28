@@ -241,3 +241,9 @@ window.open(
 displayProducts(products);
 
 updateCart();
+
+document.getElementById("closeCart").onclick=function(){
+
+document.getElementById("cartPopup").style.display="none";
+
+}

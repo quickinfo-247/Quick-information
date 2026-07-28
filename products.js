@@ -231,3 +231,88 @@ encodeURIComponent(msg),
 document.getElementById("addCartBtn").onclick = addToCart;
 
 document.getElementById("buyBtn").onclick = buyNow;
+
+// =========================
+// Share Product
+// =========================
+
+window.shareProduct = function(){
+
+const shareData = {
+
+title: product.name,
+
+text: product.description,
+
+url: window.location.href
+
+};
+
+if(navigator.share){
+
+navigator.share(shareData);
+
+}else{
+
+navigator.clipboard.writeText(window.location.href);
+
+alert("Product Link Copied!");
+
+}
+
+}
+
+// =========================
+// Related Products
+// =========================
+
+function loadRelatedProducts(){
+
+const container = document.getElementById("relatedProducts");
+
+if(!container) return;
+
+container.innerHTML = "";
+
+products
+.filter(p => p.category === product.category && p.name !== product.name)
+.slice(0,4)
+.forEach((p,index)=>{
+
+const realIndex = products.findIndex(item => item.name === p.name);
+
+container.innerHTML += `
+
+<div class="product-card">
+
+<img src="${p.image}" alt="${p.name}">
+
+<h3>${p.name}</h3>
+
+<p>₹${p.price}</p>
+
+<a href="product.html?id=${realIndex}">
+
+<button>View Details</button>
+
+</a>
+
+</div>
+
+`;
+
+});
+
+}
+
+// =========================
+// Initialize
+// =========================
+
+window.onload = function(){
+
+loadProduct();
+
+loadRelatedProducts();
+
+};

@@ -67,6 +67,11 @@ function addToCart(id){
 
 let product = products.find(p=>p.id===id);
 
+if(product.stock !== "Available"){
+    alert("This product is currently out of stock.");
+    return;
+}
+
 let item = cart.find(p=>p.id===id);
 
 

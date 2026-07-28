@@ -22,7 +22,20 @@ onerror="this.src='images/no-image.png'">
 
 <h3>${product.name}</h3>
 
-<p>${product.description}</p>
+<h3>${product.name}</h3>
+
+<button class="desc-btn" onclick="toggleDesc(${product.id})">
+ℹ Description
+</button>
+
+<p id="desc-${product.id}" class="description" style="display:none;">
+${product.description}
+</p>
+
+<p>
+${product.oldPrice ? `<span class="old-price">₹${product.oldPrice}</span>` : ""}
+<span class="price">₹${product.price}</span>
+</p>
 
 <p>
 <span class="old-price">₹${product.oldPrice}</span>
@@ -265,4 +278,16 @@ function openImage(src){
 
 function closeImage(){
     document.getElementById("imagePopup").style.display = "none";
+}
+
+function toggleDesc(id){
+
+const desc = document.getElementById("desc-" + id);
+
+if(desc.style.display==="none"){
+    desc.style.display="block";
+}else{
+    desc.style.display="none";
+}
+
 }

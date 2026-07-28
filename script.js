@@ -33,10 +33,6 @@ ${product.stock}
 Add to Cart
 </button>
 
-<button onclick="buyNow('${product.name}',${product.price})">
-Buy Now
-</button>
-
 </div>
 
 `;
@@ -240,17 +236,6 @@ window.open(
 }
 
 
-
-function buyNow(name,price){
-
-let msg =
-`Order:%0A${name}%0APrice ₹${price}`;
-
-window.open(
-"https://wa.me/918509727933?text="+msg
-);
-
-}
 
 
 

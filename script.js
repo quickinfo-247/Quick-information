@@ -21,7 +21,13 @@ onerror="this.src='images/no-image.png'">
 
 <h3>${product.name}</h3>
 
-<p>₹${product.price}</p>
+<p>${product.description}</p>
+
+<p class="price">₹${product.price}</p>
+
+<p class="${product.stock==="Available" ? "stock" : "out-stock"}">
+${product.stock}
+</p>
 
 <button onclick="addToCart(${product.id})">
 Add to Cart

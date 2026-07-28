@@ -357,3 +357,19 @@ body{
 }
 
 }
+
+.stock{
+    color:green;
+    font-weight:bold;
+}
+
+.out-stock{
+    color:red;
+    font-weight:bold;
+}
+
+.price{
+    font-size:18px;
+    color:#0066cc;
+    font-weight:bold;
+}

@@ -97,3 +97,49 @@ images:[
 ];
 
 export { products };
+
+import { products } from "./products.js";
+
+// =========================
+// Get Product ID
+// =========================
+
+const params = new URLSearchParams(window.location.search);
+
+const id = Number(params.get("id"));
+
+const product = products[id];
+
+let currentImage = 0;
+
+// =========================
+// Load Product
+// =========================
+
+function loadProduct(){
+
+if(!product){
+
+document.body.innerHTML="<h2>Product Not Found</h2>";
+
+return;
+
+}
+
+document.getElementById("productName").innerText = product.name;
+
+document.getElementById("oldPrice").innerHTML = "₹"+product.oldPrice;
+
+document.getElementById("newPrice").innerHTML = "₹"+product.price;
+
+document.getElementById("rating").innerHTML = "⭐ "+product.rating+"/5";
+
+document.getElementById("stock").innerHTML = product.stock;
+
+document.getElementById("description").innerHTML = product.description;
+
+document.getElementById("mainImage").src = product.images[0];
+
+loadGallery();
+
+}

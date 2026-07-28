@@ -92,6 +92,85 @@ View
 
 }
 
+// ===========================
+// Featured Products
+// ===========================
+
+function loadFeaturedProducts(){
+
+const container =
+document.getElementById("featured-products");
+
+if(!container) return;
+
+container.innerHTML="";
+
+products
+.filter(product => product.featured)
+.forEach(product=>{
+
+container.innerHTML += `
+
+<div class="product-card">
+
+<div class="badge">⭐ Featured</div>
+
+<img src="${product.image}">
+
+<h3>${product.name}</h3>
+
+<p>
+
+<del>₹${product.oldPrice}</del>
+
+</p>
+
+<h2 style="color:#1565c0;">
+
+₹${product.price}
+
+</h2>
+
+<p>
+
+⭐ ${product.rating}/5
+
+</p>
+
+<p>
+
+${product.stock}
+
+</p>
+
+<div class="product-btns">
+
+<button onclick="openPopup(
+
+'${product.name}',
+
+${product.price},
+
+'${product.image}',
+
+'${product.description}'
+
+)">
+
+View
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
 // ==============================
 // Search Product
 // ==============================

@@ -71,4 +71,14 @@ description:"High quality wire for CCTV camera.",
 stock:"Available"
 }
 
+{
+id:8,
+name:"12v 2a adaptor",
+category:"Electronics",
+price:180,
+image:"images/cable3plus1.jpg",
+description:"High quality wire for CCTV camera.",
+stock:"Available"
+}
+
 ];

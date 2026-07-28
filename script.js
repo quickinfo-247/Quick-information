@@ -13,13 +13,13 @@ let currentCategory = "All";
 
 function showProducts(productList){
 
-const container = document.getElementById("productContainer");
+const container=document.getElementById("productContainer");
 
 container.innerHTML="";
 
 productList.forEach(product=>{
 
-container.innerHTML+=`
+container.innerHTML += `
 
 <div class="product-card">
 
@@ -27,23 +27,17 @@ container.innerHTML+=`
 
 <h3>${product.name}</h3>
 
-${
-product.oldPrice ?
-
-`<div class="old-price">₹${product.oldPrice}</div>`
-
-:
-
-""
-
-}
+${product.oldPrice ? `<div class="old-price">₹${product.oldPrice}</div>` : ""}
 
 <div class="price">₹${product.price}</div>
 
-<button
-class="add-cart"
+<div class="stock ${product.stock ? "in-stock" : "out-stock"}">
+${product.stock ? "🟢 In Stock" : "🔴 Out of Stock"}
+</div>
+
+<button class="add-cart"
 onclick="addToCart(${product.id})"
-${!product.stock ? "disabled" : ""}>
+${product.stock === false ? "disabled" : ""}>
 
 🛒 Add To Cart
 

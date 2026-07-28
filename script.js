@@ -213,10 +213,22 @@ localStorage.setItem("cart", JSON.stringify(cart));
         count += item.qty;
 
         cartItems.innerHTML += `
-     
-          <div class="cart-item">
+
+<div class="cart-item">
+
+<div class="cart-top">
+
+<img src="${item.image}" class="cart-image">
+
+<div class="cart-info">
 
 <b>${item.name}</b>
+
+<p>₹${item.price}</p>
+
+</div>
+
+</div>
 
 <div class="qty-box">
 
@@ -228,23 +240,27 @@ localStorage.setItem("cart", JSON.stringify(cart));
 
 </div>
 
-<p>₹${item.price * item.qty}</p>
+<p><b>Subtotal : ₹${item.price * item.qty}</b></p>
 
 <button onclick="removeCart(${item.id})">
+
 🗑 Remove
+
 </button>
 
 <hr>
 
 </div>
 
-        `;
+`;
 
     });
 
     cartTotal.innerText = total;
 
     cartCount.innerText = count;
+ 
+    document.getElementById("totalItems").innerText = count;
 
 }
 

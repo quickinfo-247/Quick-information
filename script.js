@@ -247,3 +247,9 @@ document.getElementById("closeCart").onclick=function(){
 document.getElementById("cartPopup").style.display="none";
 
 }
+
+function closeCart(){
+
+document.getElementById("cartPopup").style.display="none";
+
+}

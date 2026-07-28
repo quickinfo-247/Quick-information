@@ -219,6 +219,10 @@ searchProducts
 // ----------------------------
 
 showProducts(products);
+${product.stock
+? `<div class="stock in-stock">🟢 In Stock</div>`
+: `<div class="stock out-stock">🔴 Out of Stock</div>`
+}
 
 // ===============================
 // Cart System (Part 2)

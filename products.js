@@ -66,7 +66,7 @@ const products = [
     price:2950,
     oldPrice:3300,
     image:"images/dvr4ch.jpg",
-    phone:"8509727933"
+    phone:"8509727933",
 
 description:
 

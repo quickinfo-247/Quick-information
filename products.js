@@ -8,6 +8,18 @@ const products = [
     oldPrice:70,
     image:"images/bulb9w.jpg",
     phone:"8509727933"
+
+    description:
+
+`✓ 4 Channel DVR
+
+✓ H.265 Compression
+
+✓ HDMI Output
+
+✓ Mobile Viewing
+
+✓ 1 Year Warranty`
 },
 
 

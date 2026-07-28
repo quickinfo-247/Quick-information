@@ -26,7 +26,7 @@ onerror="this.src='images/no-image.png'">
 <p class="price">₹${product.price}</p>
 
 <p class="${product.stock==="Available" ? "stock" : "out-stock"}">
-${product.stock}
+${product.stock==="Available" ? "✓ Available" : "✕ Out of Stock"}
 </p>
 
 <button onclick="addToCart(${product.id})">
@@ -36,7 +36,6 @@ Add to Cart
 </div>
 
 `;
-
 });
 
 }

@@ -125,18 +125,18 @@ font-weight:bold;
 
 .cart{
 background:#1565c0;
-color:white;
+color:green;
 }
 
 .buy{
 background:#25D366;
-color:white;
+color:red;
 }
 
 /* Cart Box */
 
 .cart-box{
-background: brown;
+background: blue;
 margin:15px;
 padding:15px;
 border-radius:8px;

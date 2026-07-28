@@ -3,7 +3,7 @@
 // script.js (Part 1)
 // ===============================
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 let currentCategory = "All";
 
@@ -210,7 +210,7 @@ function addToCart(id){
 
 // Update Cart
 function updateCart(){
-
+localStorage.setItem("cart", JSON.stringify(cart));
     const cartItems = document.getElementById("cartItems");
 
     const cartCount = document.getElementById("cartCount");

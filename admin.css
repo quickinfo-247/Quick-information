@@ -602,3 +602,33 @@ margin-bottom:0;
 }
 
 }
+
+/* ===========================
+Admin Search
+=========================== */
+
+#searchProduct{
+
+width:100%;
+
+padding:12px;
+
+margin:15px 0;
+
+font-size:16px;
+
+border:1px solid #ccc;
+
+border-radius:8px;
+
+outline:none;
+
+}
+
+#searchProduct:focus{
+
+border-color:#1565c0;
+
+box-shadow:0 0 8px rgba(21,101,192,.2);
+
+}

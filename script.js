@@ -146,33 +146,6 @@ cartCount.innerText=count;
 
 }
 
-// ======================
-// Buy Single Product
-// ======================
-
-function buyNow(name,price){
-
-const msg=
-
-`Hello,
-
-I want to buy
-
-${name}
-
-Price : ₹${price}`;
-
-window.open(
-
-"https://wa.me/918509727933?text="+
-
-encodeURIComponent(msg),
-
-"_blank"
-
-);
-
-}
 
 // ======================
 // WhatsApp Cart Order

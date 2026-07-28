@@ -369,6 +369,13 @@ body{
     font-weight:bold;
 }
 
+.old-price{
+    color:#888;
+    text-decoration:line-through;
+    font-size:14px;
+    margin-right:8px;
+}
+
 .price{
     font-size:18px;
     color:#0066cc;

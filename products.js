@@ -69,7 +69,7 @@ price:1350,
 image:"images/cable3plus1.jpg",
 description:"High quality wire for CCTV camera.",
 stock:"Available"
-}
+},
 
 {
 id:8,

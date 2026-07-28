@@ -56,6 +56,48 @@ onclick="addToCart(${product.id})">
 
 }
 
+// ===============================
+// Product Details Popup
+// ===============================
+
+let currentProductId = null;
+
+// Open Popup
+function viewDetails(id){
+
+    const product = products.find(p => p.id === id);
+
+    currentProductId = id;
+
+    document.getElementById("popupImage").src = product.image;
+
+    document.getElementById("popupName").innerText = product.name;
+
+    document.getElementById("popupPrice").innerText = product.price;
+
+    document.getElementById("popupDescription").innerText =
+    product.description || "No description available.";
+
+    document.getElementById("productPopup").style.display = "block";
+
+}
+
+// Close Popup
+function closeProductPopup(){
+
+    document.getElementById("productPopup").style.display = "none";
+
+}
+
+// Add To Cart From Popup
+function popupAddToCart(){
+
+    addToCart(currentProductId);
+
+    closeProductPopup();
+
+}
+
 // ----------------------------
 // Filter Category
 // ----------------------------

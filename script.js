@@ -46,9 +46,14 @@ ${product.oldPrice ? `<span class="old-price">₹${product.oldPrice}</span>` : "
 ${product.stock==="Available" ? "✓ Available" : "✕ Out of Stock"}
 </p>
 
-<button onclick="addToCart(${product.id})">
+${product.stock === "Available"
+? `<button onclick="addToCart(${product.id})">
 Add to Cart
-</button>
+</button>`
+: `<button class="disabled-btn" disabled>
+Out of Stock
+</button>`
+}
 
 </div>
 

@@ -66,7 +66,7 @@ image:"images/cable3plus1.jpg"
 {
 name:"20W T5 tube Light",
 price:1200,
-category:"solar",
+category:"Solar",
 image:"images/t5tube.jpg"
 }
 

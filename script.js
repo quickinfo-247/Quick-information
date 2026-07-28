@@ -129,6 +129,13 @@ item=>item.category===category
 
 showProducts(filtered);
 
+<button class="view-btn"
+onclick="viewDetails(${product.id})">
+
+ℹ️ Details
+
+</button>
+
 }
 
 // ----------------------------

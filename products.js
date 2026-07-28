@@ -3,7 +3,7 @@ const products = [
 {
 id:1,
 name:"9W Ultra LED Bulb",
-category:"Electrical",
+category:"Lights",
 price:50,
 image:"images/bulb9w.jpg",
 description:"Energy saving LED bulb. Low power consumption.",
@@ -13,7 +13,7 @@ stock:"Available"
 {
 id:2,
 name:"Philips AC DC Bulb",
-category:"Electrical",
+category:"Lights",
 price:300,
 image:"images/philips.jpg",
 description:"Philips emergency AC DC LED bulb.",
@@ -23,7 +23,7 @@ stock:"Available"
 {
 id:3,
 name:"Oreva AC DC Bulb",
-category:"Electrical",
+category:"Lights",
 price:250,
 image:"images/oreva.jpg",
 description:"Rechargeable emergency LED bulb.",
@@ -33,7 +33,7 @@ stock:"Out of Stock"
 {
 id:4,
 name:"555 Motor",
-category:"Electrical",
+category:"Electronics",
 price:110,
 image:"images/555motor.jpg",
 description:"High quality small DC motor.",

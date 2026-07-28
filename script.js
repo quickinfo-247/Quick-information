@@ -48,6 +48,13 @@ onclick="addToCart(${product.id})">
 
 </button>
 
+<button class="view-btn"
+onclick="viewDetails(${product.id})">
+
+ℹ️ Details
+
+</button>
+
 </div>
 
 `;
@@ -379,40 +386,6 @@ toggleCart
 
 );
 
-// ===============================
-// Buy Now (WhatsApp)
-// ===============================
-
-function buyNow(id){
-
-    const product = products.find(p => p.id === id);
-
-    const message =
-`Hello,
-
-I want to buy
-
-${product.name}
-
-Price : ₹${product.price}`;
-
-    window.open(
-        "https://wa.me/918509727933?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
-
-}
-
-// ===============================
-// Call Now
-// ===============================
-
-function callNow(phone){
-
-    window.location.href = "tel:" + phone;
-
-}
 
 // ===============================
 // WhatsApp Cart Order
@@ -437,9 +410,14 @@ document
     cart.forEach(item=>{
 
         message +=
-`${item.name}
+
+`🛒 ${item.name}
+
 Qty : ${item.qty}
-Price : ₹${item.price * item.qty}
+
+Subtotal : ₹${item.price * item.qty}
+
+------------------------
 
 `;
 
@@ -447,7 +425,13 @@ Price : ₹${item.price * item.qty}
 
     });
 
-    message += "Total : ₹" + total;
+    message +=
+
+`Total Items : ${count}
+
+Grand Total : ₹${total}
+
+Thank You.`;
 
     window.open(
         "https://wa.me/918509727933?text=" +
@@ -464,3 +448,27 @@ Price : ₹${item.price * item.qty}
 showProducts(products);
 
 updateCart();
+
+window.onclick=function(e){
+
+const popup=document.getElementById("cartPopup");
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+}
+
+window.addEventListener("click",function(e){
+
+const popup=document.getElementById("productPopup");
+
+if(e.target===popup){
+
+popup.style.display="none";
+
+}
+
+});

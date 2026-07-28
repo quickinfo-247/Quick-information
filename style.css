@@ -451,3 +451,19 @@ body{
 }
 
 }
+
+.close-cart{
+
+position:absolute;
+right:10px;
+top:8px;
+border:none;
+background:#ff3333;
+color:white;
+width:25px;
+height:25px;
+border-radius:50%;
+font-size:14px;
+cursor:pointer;
+
+}

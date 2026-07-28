@@ -143,3 +143,91 @@ document.getElementById("mainImage").src = product.images[0];
 loadGallery();
 
 }
+
+// =========================
+// Thumbnail Gallery
+// =========================
+
+function loadGallery(){
+
+const gallery = document.getElementById("gallery");
+
+gallery.innerHTML = "";
+
+product.images.forEach((img,index)=>{
+
+gallery.innerHTML += `
+
+<img src="${img}"
+
+onclick="changeImage(${index})">
+
+`;
+
+});
+
+}
+
+window.changeImage = function(index){
+
+currentImage = index;
+
+document.getElementById("mainImage").src = product.images[index];
+
+}
+
+// =========================
+// Add To Cart
+// =========================
+
+window.addToCart = function(){
+
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+cart.push({
+
+name:product.name,
+
+price:product.price,
+
+image:product.image,
+
+qty:1
+
+});
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+alert("✅ Product Added To Cart");
+
+}
+
+// =========================
+// WhatsApp Buy
+// =========================
+
+window.buyNow = function(){
+
+const msg =
+
+`Hello, I want to order
+
+${product.name}
+
+Price : ₹${product.price}`;
+
+window.open(
+
+"https://wa.me/918509727933?text="+
+
+encodeURIComponent(msg),
+
+"_blank"
+
+);
+
+}
+
+document.getElementById("addCartBtn").onclick = addToCart;
+
+document.getElementById("buyBtn").onclick = buyNow;

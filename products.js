@@ -25,7 +25,7 @@ image:"images/oreva.jpg"
 name:"555 DC Motor",
 price:110,
 category:"Electronics",
-image:"images/motor555.jpg"
+image:"images/555motor.jpg"
 },
 
 {

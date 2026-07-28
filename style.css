@@ -40,13 +40,13 @@ padding:5px 10px;
 border-radius:4px;
 font-weight:bold;
 cursor:pointer;
-align-items:top right side corner;
+align-items:top right corner;
 }
 
 /* Contact us */
 
 . contact us {
-background:white;
+background: yellow;
 margin:12px;
 padding:12px;
 border-radius:8px;
@@ -125,18 +125,18 @@ font-weight:bold;
 
 .cart{
 background:#1565c0;
-color:green;
+color:white;
 }
 
 .buy{
 background:#25D366;
-color:red;
+color:white;
 }
 
 /* Cart Box */
 
 .cart-box{
-background: blue;
+background: sky blue;
 margin:10px;
 padding:10px;
 border-radius:5px;

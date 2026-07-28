@@ -213,24 +213,30 @@ localStorage.setItem("cart", JSON.stringify(cart));
         count += item.qty;
 
         cartItems.innerHTML += `
+     
+          <div class="cart-item">
 
-        <div class="cart-item">
+<b>${item.name}</b>
 
-            <b>${item.name}</b><br>
+<div class="qty-box">
 
-            ₹${item.price} × ${item.qty}
+<button onclick="decreaseQty(${item.id})">➖</button>
 
-            <br>
+<span>${item.qty}</span>
 
-            <button onclick="removeCart(${item.id})">
+<button onclick="increaseQty(${item.id})">➕</button>
 
-            ❌ Remove
+</div>
 
-            </button>
+<p>₹${item.price * item.qty}</p>
 
-            <hr>
+<button onclick="removeCart(${item.id})">
+🗑 Remove
+</button>
 
-        </div>
+<hr>
+
+</div>
 
         `;
 
@@ -265,6 +271,40 @@ function toggleCart(){
         popup.style.display="block";
 
     }
+
+}
+
+function increaseQty(id){
+
+    const item = cart.find(p=>p.id===id);
+
+    if(item){
+
+        item.qty++;
+
+        updateCart();
+
+    }
+
+}
+
+function decreaseQty(id){
+
+    const item = cart.find(p=>p.id===id);
+
+    if(!item) return;
+
+    if(item.qty>1){
+
+        item.qty--;
+
+    }else{
+
+        cart = cart.filter(p=>p.id!==id);
+
+    }
+
+    updateCart();
 
 }
 

@@ -39,7 +39,7 @@ image:"images/adapter12v2a.jpg"
 name:"12V 5A SMPS",
 price:580,
 category:"Electronics",
-image:"images/smps5a.jpg"
+image:"images/smps12v5a.jpg"
 },
 
 {
@@ -60,14 +60,14 @@ image:"images/monitor19.jpg"
 name:"3+1 CCTV Cable",
 price:1280,
 category:"CCTV",
-image:"images/cable.jpg"
+image:"images/cable3plus1.jpg"
 },
 
 {
-name:"20W Solar Light",
+name:"20W T5 tube Light",
 price:1200,
-category:"Solar",
-image:"images/solar20w.jpg"
+category:"solar",
+image:"images/t5tube.jpg"
 }
 
 ];

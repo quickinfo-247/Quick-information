@@ -60,4 +60,14 @@ description:"HD display monitor for CCTV system.",
 stock:"Available"
 }
 
+{
+id:7,
+name:"CCTV cable",
+category:"CCTV",
+price:1350,
+image:"images/cable3plus1.jpg",
+description:"High quality wire for CCTV camera.",
+stock:"Available"
+}
+
 ];

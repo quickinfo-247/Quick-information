@@ -1,1 +1,103 @@
-ok
+/* ==================================
+Quick Information
+Shopping Cart
+================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+
+background:#f5f7fb;
+
+color:#222;
+
+}
+
+/* ================= Header ================= */
+
+.header{
+
+background:#1565c0;
+
+color:#fff;
+
+padding:15px 20px;
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+}
+
+.back-btn{
+
+color:#fff;
+
+text-decoration:none;
+
+padding:8px 12px;
+
+border:2px solid #fff;
+
+border-radius:8px;
+
+font-weight:bold;
+
+transition:.3s;
+
+}
+
+.back-btn:hover{
+
+background:#fff;
+
+color:#1565c0;
+
+}
+
+/* ================= Layout ================= */
+
+.cart-container{
+
+max-width:1200px;
+
+margin:30px auto;
+
+padding:20px;
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:30px;
+
+}
+
+.cart-items,
+.cart-summary{
+
+background:#fff;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+
+}
+
+.cart-items h2,
+.cart-summary h2{
+
+color:#1565c0;
+
+margin-bottom:20px;
+
+}

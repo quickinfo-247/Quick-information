@@ -1,67 +1,34 @@
-// ===============================
-// Quick Information
-// script.js (Part 1)
-// ===============================
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-let cart = [];
+const productContainer = document.getElementById("productContainer");
+const cartCount = document.getElementById("cartCount");
+const cartItems = document.getElementById("cartItems");
+const cartTotal = document.getElementById("cartTotal");
 
-let currentCategory = "All";
 
-// ----------------------------
-// Show Products
-// ----------------------------
+function displayProducts(list){
 
-function showProducts(productList){
+productContainer.innerHTML="";
 
-const container = document.getElementById("productContainer");
+list.forEach(product=>{
 
-container.innerHTML="";
-
-productList.forEach(product=>{
-
-container.innerHTML+=`
+productContainer.innerHTML += `
 
 <div class="product-card">
 
-<img src="${product.image}" alt="${product.name}">
+<img src="${product.image}" 
+onerror="this.src='images/no-image.png'">
 
 <h3>${product.name}</h3>
 
-${
-product.oldPrice ?
+<p>₹${product.price}</p>
 
-`<div class="old-price">₹${product.oldPrice}</div>`
-
-:
-
-""
-
-}
-
-<div class="price">₹${product.price}</div>
-
-<button class="add-cart"
-
-onclick="addToCart(${product.id})">
-
-🛒 Add To Cart
-
+<button onclick="addToCart(${product.id})">
+Add to Cart
 </button>
 
-<button class="buy-btn"
-
-onclick="buyNow(${product.id})">
-
-💬 Buy WhatsApp
-
-</button>
-
-<button class="call-btn"
-
-onclick="callNow('${product.phone}')">
-
-📞 Call Now
-
+<button onclick="buyNow('${product.name}',${product.price})">
+Buy Now
 </button>
 
 </div>
@@ -72,313 +39,215 @@ onclick="callNow('${product.phone}')">
 
 }
 
-// ----------------------------
-// Filter Category
-// ----------------------------
 
-function filterProducts(category){
-
-currentCategory = category;
-
-if(category==="All"){
-
-showProducts(products);
-
-return;
-
-}
-
-const filtered = products.filter(
-
-item=>item.category===category
-
-);
-
-showProducts(filtered);
-
-}
-
-// ----------------------------
-// Search Product
-// ----------------------------
-
-function searchProducts(){
-
-const keyword = document
-
-.getElementById("searchBox")
-
-.value
-
-.toLowerCase();
-
-const filtered = products.filter(item=>{
-
-const matchName = item.name
-
-.toLowerCase()
-
-.includes(keyword);
-
-const matchCategory =
-
-currentCategory==="All"
-
-||
-
-item.category===currentCategory;
-
-return matchName && matchCategory;
-
-});
-
-showProducts(filtered);
-
-}
-
-// ----------------------------
-// Category Button Event
-// ----------------------------
-
-document
-
-.querySelectorAll(".category-area button")
-
-.forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-filterProducts(
-
-btn.dataset.category
-
-);
-
-});
-
-});
-
-// ----------------------------
-// Search Event
-// ----------------------------
-
-document
-
-.getElementById("searchBox")
-
-.addEventListener(
-
-"keyup",
-
-searchProducts
-
-);
-
-// ----------------------------
-// Load Products
-// ----------------------------
-
-showProducts(products);
-
-// ===============================
-// Cart System (Part 2)
-// ===============================
-
-// Add To Cart
 function addToCart(id){
 
-    const product = products.find(p => p.id === id);
+let product = products.find(p=>p.id===id);
 
-    const existing = cart.find(item => item.id === id);
+let item = cart.find(p=>p.id===id);
 
-    if(existing){
 
-        existing.qty++;
+if(item){
 
-    }else{
+item.qty++;
 
-        cart.push({
-            ...product,
-            qty:1
-        });
+}else{
 
-    }
-
-    updateCart();
+cart.push({
+...product,
+qty:1
+});
 
 }
 
-// Update Cart
+saveCart();
+
+}
+
+
+
+function saveCart(){
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCart();
+
+}
+
+
+
 function updateCart(){
 
-    const cartItems = document.getElementById("cartItems");
+cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
 
-    const cartCount = document.getElementById("cartCount");
+cartItems.innerHTML="";
 
-    const cartTotal = document.getElementById("cartTotal");
+let total=0;
 
-    cartItems.innerHTML="";
 
-    let total=0;
-    let count=0;
+cart.forEach(item=>{
 
-    cart.forEach(item=>{
+total += item.price * item.qty;
 
-        total += item.price * item.qty;
 
-        count += item.qty;
+cartItems.innerHTML +=`
 
-        cartItems.innerHTML += `
+<div class="cart-item">
 
-        <div class="cart-item">
+<img src="${item.image}">
 
-            <b>${item.name}</b><br>
+<div>
+${item.name}<br>
+₹${item.price} × ${item.qty}
 
-            ₹${item.price} × ${item.qty}
+<br>
 
-            <br>
+<button onclick="changeQty(${item.id},-1)">-</button>
 
-            <button onclick="removeCart(${item.id})">
+<button onclick="changeQty(${item.id},1)">+</button>
 
-            ❌ Remove
+<button onclick="removeItem(${item.id})">
+Delete
+</button>
 
-            </button>
+</div>
 
-            <hr>
-
-        </div>
-
-        `;
-
-    });
-
-    cartTotal.innerText = total;
-
-    cartCount.innerText = count;
-
-}
-
-// Remove Cart Item
-function removeCart(id){
-
-    cart = cart.filter(item=>item.id!==id);
-
-    updateCart();
-
-}
-
-// Popup Cart
-function toggleCart(){
-
-    const popup=document.getElementById("cartPopup");
-
-    if(popup.style.display==="block"){
-
-        popup.style.display="none";
-
-    }else{
-
-        popup.style.display="block";
-
-    }
-
-}
-
-// Cart Button Click
-document
-
-.getElementById("cartBtn")
-
-.addEventListener(
-
-"click",
-
-toggleCart
-
-);
-
-// ===============================
-// Buy Now (WhatsApp)
-// ===============================
-
-function buyNow(id){
-
-    const product = products.find(p => p.id === id);
-
-    const message =
-`Hello,
-
-I want to buy
-
-${product.name}
-
-Price : ₹${product.price}`;
-
-    window.open(
-        "https://wa.me/918509727933?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
-
-}
-
-// ===============================
-// Call Now
-// ===============================
-
-function callNow(phone){
-
-    window.location.href = "tel:" + phone;
-
-}
-
-// ===============================
-// WhatsApp Cart Order
-// ===============================
-
-document
-.getElementById("whatsappOrder")
-.addEventListener("click",()=>{
-
-    if(cart.length===0){
-
-        alert("Your cart is empty.");
-
-        return;
-
-    }
-
-    let message = "Hello, I want to order:\n\n";
-
-    let total = 0;
-
-    cart.forEach(item=>{
-
-        message +=
-`${item.name}
-Qty : ${item.qty}
-Price : ₹${item.price * item.qty}
+</div>
 
 `;
 
-        total += item.price * item.qty;
+});
 
-    });
 
-    message += "Total : ₹" + total;
+cartTotal.innerText=total;
 
-    window.open(
-        "https://wa.me/918509727933?text=" +
-        encodeURIComponent(message),
-        "_blank"
-    );
+}
+
+
+
+function changeQty(id,value){
+
+let item=cart.find(p=>p.id===id);
+
+item.qty += value;
+
+
+if(item.qty<=0){
+
+removeItem(id);
+
+}
+
+else{
+
+saveCart();
+
+}
+
+}
+
+
+
+function removeItem(id){
+
+cart = cart.filter(p=>p.id!==id);
+
+saveCart();
+
+}
+
+
+
+document.getElementById("cartBtn").onclick=function(){
+
+let box=document.getElementById("cartPopup");
+
+box.style.display =
+box.style.display==="block" ? "none":"block";
+
+}
+
+
+
+document.getElementById("searchBox").onkeyup=function(){
+
+let value=this.value.toLowerCase();
+
+let result=products.filter(p=>
+p.name.toLowerCase().includes(value)
+);
+
+displayProducts(result);
+
+}
+
+
+
+document.querySelectorAll(".category-area button")
+.forEach(btn=>{
+
+btn.onclick=function(){
+
+let cat=this.dataset.category;
+
+
+if(cat==="All"){
+
+displayProducts(products);
+
+}
+
+else{
+
+displayProducts(
+products.filter(p=>p.category===cat)
+);
+
+}
+
+}
 
 });
 
-// ===============================
-// Start Website
-// ===============================
 
-showProducts(products);
+
+document.getElementById("whatsappOrder")
+.onclick=function(){
+
+let message="New Order%0A%0A";
+
+cart.forEach(item=>{
+
+message += 
+`${item.name} Qty:${item.qty} Price:${item.price}%0A`;
+
+});
+
+
+message += `%0ATotal ₹${cartTotal.innerText}`;
+
+
+window.open(
+"https://wa.me/919163215683?text="+message
+);
+
+}
+
+
+
+function buyNow(name,price){
+
+let msg =
+`Order:%0A${name}%0APrice ₹${price}`;
+
+window.open(
+"https://wa.me/919163215683?text="+msg
+);
+
+}
+
+
+
+displayProducts(products);
 
 updateCart();

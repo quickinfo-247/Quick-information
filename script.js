@@ -35,10 +35,6 @@ ${product.oldPrice ? `<span class="old-price">₹${product.oldPrice}</span>` : "
 <span class="price">₹${product.price}</span>
 </p>
 
-<p>
-<span class="old-price">₹${product.oldPrice}</span>
-<span class="price">₹${product.price}</span>
-</p>
 
 <p class="${product.stock==="Available" ? "stock" : "out-stock"}">
 ${product.stock==="Available" ? "✓ Available" : "✕ Out of Stock"}

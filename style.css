@@ -374,3 +374,24 @@ body{
     color:#0066cc;
     font-weight:bold;
 }
+
+.stock{
+    color:green;
+    font-weight:bold;
+    background:#e8f5e9;
+    padding:5px 10px;
+    border-radius:15px;
+    display:inline-block;
+    font-size:14px;
+}
+
+
+.out-stock{
+    color:red;
+    font-weight:bold;
+    background:#ffebee;
+    padding:5px 10px;
+    border-radius:15px;
+    display:inline-block;
+    font-size:14px;
+}

@@ -22,8 +22,6 @@ onerror="this.src='images/no-image.png'">
 
 <h3>${product.name}</h3>
 
-<h3>${product.name}</h3>
-
 <button class="desc-btn" onclick="toggleDesc(${product.id})">
 ℹ Description
 </button>

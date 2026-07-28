@@ -550,3 +550,71 @@ behavior:"smooth"
 });
 
 }
+
+// ===========================
+// Product Image Gallery
+// ===========================
+
+let currentImages = [];
+let currentImageIndex = 0;
+
+function openPopup(name, price, image, description){
+
+const product = products.find(p => p.name === name);
+
+currentImages = product.images || [image];
+
+currentImageIndex = 0;
+
+document.getElementById("popup-image").src =
+currentImages[currentImageIndex];
+
+document.getElementById("popup-title").innerText = name;
+
+document.getElementById("popup-price").innerText = "₹" + price;
+
+document.getElementById("popup-description").innerText = description;
+
+document.getElementById("product-popup").style.display = "block";
+
+}
+
+function nextImage(){
+
+if(currentImages.length===0) return;
+
+currentImageIndex++;
+
+if(currentImageIndex>=currentImages.length){
+
+currentImageIndex=0;
+
+}
+
+document.getElementById("popup-image").src =
+currentImages[currentImageIndex];
+
+}
+
+function prevImage(){
+
+if(currentImages.length===0) return;
+
+currentImageIndex--;
+
+if(currentImageIndex<0){
+
+currentImageIndex=currentImages.length-1;
+
+}
+
+document.getElementById("popup-image").src =
+currentImages[currentImageIndex];
+
+}
+
+function closePopup(){
+
+document.getElementById("product-popup").style.display="none";
+
+}

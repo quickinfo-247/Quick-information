@@ -5,6 +5,7 @@ id:1,
 name:"9W Ultra LED Bulb",
 category:"Lights",
 price:50,
+old price: 70,
 image:"images/bulb9w.jpg",
 description:"Energy saving LED bulb. Low power consumption.",
 stock:"Available"

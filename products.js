@@ -45,7 +45,7 @@ stock:"Available"
 id:5,
 name:"4 Channel DVR",
 category:"CCTV",
-price:2950,
+price:2750,
 image:"images/dvr4ch.jpg",
 description:"4 channel DVR for CCTV camera setup.",
 stock:"Available"
@@ -55,7 +55,7 @@ stock:"Available"
 id:6,
 name:"19 Inch Monitor",
 category:"Electronics",
-price:2450,
+price:2650,
 image:"images/monitor19.jpg",
 description:"HD display monitor for CCTV system.",
 stock:"Available"
@@ -75,7 +75,7 @@ stock:"Available"
 id:8,
 name:"12v 2a adaptor",
 category:"Electronics",
-price:180,
+price:170,
 image:"images/adapter12v2a.jpg",
 description:"High quality adaptor for CCTV camera and power supply.",
 stock:"Available"
@@ -162,7 +162,7 @@ stock:"Available"
 id:16,
 name:"CR 1220 Pin Type Battery",
 category:"CCTV",
-price:50,
+price:60,
 oldPrice:80,
 image:"images/cr1220pin.jpg",
 description:"Best for CCTV DVR motherboard.",

@@ -218,6 +218,28 @@ price:6,
 image:"images/6heat.jpg",
 description:"6mm Heat Shink for using cable joint protection. Rs.6/feet.",
 stock:"Available"
+},
+
+{
+id:22,
+name:"Mini Torch Light",
+category:"Lights",
+price:130,
+oldPrice:170,
+image:"images/mbt.jpg",
+description:"High focus mini handy torch light with charger cable.",
+stock:"Available"
+},
+
+{
+id:23,
+name:"Mini Torch Light",
+category:"Lights",
+price:120,
+oldPrice:130,
+image:"images/mt.jpg",
+description:"Mini Torch with Charger.",
+stock:"Available"
 }
 
 ];

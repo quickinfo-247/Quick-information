@@ -178,6 +178,46 @@ oldPrice:30,
 image:"images/cr1220.jpg",
 description:"Best for CCTV motherboard.",
 stock:"Available"
+},
+
+{
+id:18,
+name:"1mm Heat Shink",
+category:"Electronics",
+price:2,
+image:"images/1heat.jpg",
+description:"1mm Heat Shink for using cable joint protection. Rs.2/feet.",
+stock:"Available"
+},
+
+{
+id:19,
+name:"2mm Heat Shink",
+category:"Electronics",
+price:3,
+image:"images/2heat.jpg",
+description:"2mm Heat Shink for using cable joint protection. Rs.3/feet.",
+stock:"Available"
+},
+
+{
+id:20,
+name:"2.5mm Heat Shink",
+category:"Electronics",
+price:4,
+image:"images/25heat.jpg",
+description:"2.5mm Heat Shink for using cable joint protection. Rs.4/feet.",
+stock:"Available"
+},
+
+{
+id:21,
+name:"6mm Heat Shink",
+category:"Electronics",
+price:6,
+image:"images/6heat.jpg",
+description:"6mm Heat Shink for using cable joint protection. Rs.6/feet.",
+stock:"Available"
 }
 
 ];

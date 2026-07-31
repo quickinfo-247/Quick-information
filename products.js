@@ -182,41 +182,41 @@ stock:"Available"
 
 {
 id:18,
-name:"1mm Heat Shink",
+name:"1mm Heat Shink 5 ft",
 category:"Electronics",
-price:2,
+price:10,
 image:"images/1heat.jpg",
-description:"1mm Heat Shink for using cable joint protection. Rs.2/feet.",
+description:"1mm Heat Shink for using cable joint protection. 5 ft long.",
 stock:"Available"
 },
 
 {
 id:19,
-name:"2mm Heat Shink",
+name:"2mm Heat Shink 5 ft",
 category:"Electronics",
-price:3,
+price:15,
 image:"images/2heat.jpg",
-description:"2mm Heat Shink for using cable joint protection. Rs.3/feet.",
+description:"2mm Heat Shink for using cable joint protection. 5 ft long.",
 stock:"Available"
 },
 
 {
 id:20,
-name:"2.5mm Heat Shink",
+name:"2.5mm Heat Shink 5 ft",
 category:"Electronics",
-price:4,
+price:20,
 image:"images/25heat.jpg",
-description:"2.5mm Heat Shink for using cable joint protection. Rs.4/feet.",
+description:"2.5mm Heat Shink for using cable joint protection. 5 ft long.",
 stock:"Available"
 },
 
 {
 id:21,
-name:"6mm Heat Shink",
+name:"6mm Heat Shink 5 ft",
 category:"Electronics",
-price:6,
+price:30,
 image:"images/6heat.jpg",
-description:"6mm Heat Shink for using cable joint protection. Rs.6/feet.",
+description:"6mm Heat Shink for using cable joint protection.5 ft long.",
 stock:"Available"
 },
 

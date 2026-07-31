@@ -28,7 +28,7 @@ category:"Lights",
 price:250,
 image:"images/oreva.jpg",
 description:"Rechargeable emergency LED bulb.",
-stock:"Available"
+stock:"Out of Stock"
 },
 
 {
@@ -45,7 +45,7 @@ stock:"Available"
 id:5,
 name:"4 Channel DVR",
 category:"CCTV",
-price:2750,
+price:2950,
 image:"images/dvr4ch.jpg",
 description:"4 channel DVR for CCTV camera setup.",
 stock:"Available"
@@ -65,9 +65,9 @@ stock:"Available"
 id:7,
 name:"CCTV cable",
 category:"CCTV",
-price:1350,
+price:1650,
 image:"images/cable3plus1.jpg",
-description:"High quality wire for CCTV camera.",
+description:"Primium quality cupper wire for CCTV camera.",
 stock:"Available"
 },
 
@@ -100,7 +100,7 @@ price:110,
 oldPrice:150,
 image:"images/t5tube.jpg",
 description:"Energy saving LED Tube Light. Low power consumption. 4 feets",
-stock:"Available"
+stock:"Out of Stock"
 },
 
 {

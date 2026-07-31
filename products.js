@@ -63,11 +63,11 @@ stock:"Available"
 
 {
 id:7,
-name:"CCTV cable",
+name:"Standerd CCTV cable",
 category:"CCTV",
-price:1650,
+price:1350,
 image:"images/cable3plus1.jpg",
-description:"Primium quality cupper wire for CCTV camera.",
+description:"Standard quality wire for CCTV camera.",
 stock:"Available"
 },
 

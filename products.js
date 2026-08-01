@@ -240,6 +240,16 @@ oldPrice:130,
 image:"images/mt.jpg",
 description:"Mini Torch with Charger.",
 stock:"Available"
+},
+
+{
+id:24,
+name:"Extension Board",
+category:"Electrical",
+price:175,
+image:"images/ebr.jpg",
+description:"Electrical extension board. 4 meter wire length, good quality.",
+stock:"Available"
 }
 
 ];

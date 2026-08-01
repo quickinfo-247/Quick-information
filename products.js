@@ -250,6 +250,16 @@ price:175,
 image:"images/ebr.jpg",
 description:"Electrical extension board. 4 meter wire length, good quality.",
 stock:"Available"
+},
+
+{
+id:25,
+name:"Mini Hand Fan",
+category:"Electrical",
+price:149,
+image:"images/mf.jpg",
+description:"Handy mini fan 1/2 hours battery backup in low speed.",
+stock:"Available"
 }
 
 ];

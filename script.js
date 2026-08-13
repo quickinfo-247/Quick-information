@@ -453,3 +453,39 @@ function showOrderStatus(orderId, status){
     `;
 
 }
+
+// ===============================
+// Track Button Popup
+// ===============================
+
+const trackBtn = document.getElementById("trackBtn");
+
+const trackPopup = document.getElementById("trackPopup");
+
+const closeTrackPopup =
+    document.getElementById("closeTrackPopup");
+
+
+trackBtn.addEventListener("click", function(){
+
+    trackPopup.style.display = "flex";
+
+});
+
+
+closeTrackPopup.addEventListener("click", function(){
+
+    trackPopup.style.display = "none";
+
+});
+
+
+window.addEventListener("click", function(event){
+
+    if(event.target === trackPopup){
+
+        trackPopup.style.display = "none";
+
+    }
+
+});

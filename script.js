@@ -912,6 +912,18 @@ document.addEventListener(
 );
 
 
+// X Button
+document.addEventListener("click", function(event){
+
+    if(event.target.closest("#closeTrackPopup")){
+
+        closeTrackPopup();
+
+    }
+
+});
+
+
 // ==========================================
 // CLOSE TRACK POPUP
 // ==========================================

@@ -804,3 +804,277 @@ cursor:pointer;
     }
 
 }
+
+/* ===============================
+   Header Track Button
+================================ */
+
+.header-buttons{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+
+}
+
+.track-btn{
+
+    background:white;
+
+    color:#1565C0;
+
+    border:none;
+
+    padding:10px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+/* ===============================
+   Track Popup
+================================ */
+
+.track-popup{
+
+    display:none;
+
+    position:fixed;
+
+    left:0;
+
+    top:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(0,0,0,.6);
+
+    z-index:10000;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+.track-popup-content{
+
+    width:90%;
+
+    max-width:380px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+    position:relative;
+
+    box-shadow:0 5px 25px rgba(0,0,0,.3);
+
+}
+
+.track-popup-content h2{
+
+    color:#1565C0;
+
+    margin-bottom:8px;
+
+}
+
+.track-popup-content p{
+
+    color:#555;
+
+    margin-bottom:15px;
+
+}
+
+.close-track{
+
+    position:absolute;
+
+    right:15px;
+
+    top:8px;
+
+    font-size:30px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    color:#555;
+
+}
+
+#orderIdInput{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    outline:none;
+
+    margin-bottom:10px;
+
+}
+
+.track-search-btn{
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1565C0;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+/* Tracking Result */
+
+#trackingResult{
+
+    margin-top:15px;
+
+}
+
+.tracking-result{
+
+    background:#f5f7fa;
+
+    padding:15px;
+
+    border-radius:10px;
+
+}
+
+.order-id{
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:#1565C0;
+
+    margin:8px 0 15px;
+
+}
+
+.order-status{
+
+    padding:12px;
+
+    border-radius:8px;
+
+    font-weight:bold;
+
+}
+
+.status-received{
+
+    background:#fff3cd;
+
+    color:#856404;
+
+}
+
+.status-preparing{
+
+    background:#e3f2fd;
+
+    color:#1565C0;
+
+}
+
+.status-delivery{
+
+    background:#fff3e0;
+
+    color:#ef6c00;
+
+}
+
+.status-delivered{
+
+    background:#e8f5e9;
+
+    color:#2e7d32;
+
+}
+
+.tracking-error{
+
+    padding:10px;
+
+    background:#ffebee;
+
+    color:#c62828;
+
+    border-radius:8px;
+
+}
+
+.tracking-loading{
+
+    padding:10px;
+
+    background:#e3f2fd;
+
+    color:#1565C0;
+
+    border-radius:8px;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+    .header-buttons{
+
+        gap:6px;
+
+    }
+
+    .track-btn,
+    .header-buttons button{
+
+        padding:9px 11px;
+
+        font-size:13px;
+
+    }
+
+}

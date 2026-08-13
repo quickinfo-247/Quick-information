@@ -295,3 +295,161 @@ if(desc.style.display==="none"){
 }
 
 }
+
+// ===============================
+// GitHub Order Tracking
+// ===============================
+
+async function trackOrder(){
+
+    const input =
+        document.getElementById("orderIdInput");
+
+    const result =
+        document.getElementById("trackingResult");
+
+    const orderId =
+        input.value.trim().toUpperCase();
+
+    if(orderId === ""){
+
+        result.innerHTML = `
+            <div class="tracking-error">
+                ⚠️ Please enter your Order ID.
+            </div>
+        `;
+
+        return;
+    }
+
+    result.innerHTML = `
+        <div class="tracking-loading">
+            🔄 Checking your order...
+        </div>
+    `;
+
+    try{
+
+        const response = await fetch(
+            "orders.json?time=" + Date.now()
+        );
+
+        if(!response.ok){
+
+            throw new Error("Orders file not found");
+
+        }
+
+        const orders = await response.json();
+
+        const order = orders[orderId];
+
+        if(!order){
+
+            result.innerHTML = `
+                <div class="tracking-error">
+
+                    ❌ Order not found.
+
+                    <br><br>
+
+                    Please check your Order ID.
+
+                </div>
+            `;
+
+            return;
+        }
+
+        showOrderStatus(orderId, order.status);
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        result.innerHTML = `
+            <div class="tracking-error">
+
+                ⚠️ Unable to check order.
+
+                <br>
+
+                Please try again later.
+
+            </div>
+        `;
+
+    }
+
+}
+
+
+// ===============================
+// Show Order Status
+// ===============================
+
+function showOrderStatus(orderId, status){
+
+    const result =
+        document.getElementById("trackingResult");
+
+    let icon = "📦";
+    let statusClass = "status-received";
+
+    if(status === "Order Received"){
+
+        icon = "🟡";
+        statusClass = "status-received";
+
+    }
+
+    else if(status === "Preparing"){
+
+        icon = "🔵";
+        statusClass = "status-preparing";
+
+    }
+
+    else if(status === "Out for Delivery"){
+
+        icon = "🟠";
+        statusClass = "status-delivery";
+
+    }
+
+    else if(status === "Delivered"){
+
+        icon = "🟢";
+        statusClass = "status-delivered";
+
+    }
+
+    result.innerHTML = `
+
+        <div class="tracking-result">
+
+            <h3>Order ID</h3>
+
+            <p class="order-id">
+                ${orderId}
+            </p>
+
+            <div class="order-status ${statusClass}">
+
+                <span class="status-icon">
+                    ${icon}
+                </span>
+
+                <span>
+                    ${status}
+                </span>
+
+            </div>
+
+        </div>
+
+    `;
+
+}

@@ -455,36 +455,53 @@ function showOrderStatus(orderId, status){
 }
 
 // ===============================
-// Track Button Popup
+// Track Order Popup
 // ===============================
 
-const trackBtn = document.getElementById("trackBtn");
+function openTrackPopup(){
 
-const trackPopup = document.getElementById("trackPopup");
+    const popup = document.getElementById("trackPopup");
 
-const closeTrackPopup =
-    document.getElementById("closeTrackPopup");
+    if(popup){
+        popup.style.display = "flex";
+    }
+
+}
+
+function closeTrackPopup(){
+
+    const popup = document.getElementById("trackPopup");
+
+    if(popup){
+        popup.style.display = "none";
+    }
+
+}
 
 
-trackBtn.addEventListener("click", function(){
+// Track button
+document.addEventListener("click", function(event){
 
-    trackPopup.style.display = "flex";
+    if(event.target.closest("#trackBtn")){
+
+        openTrackPopup();
+
+    }
 
 });
 
 
-closeTrackPopup.addEventListener("click", function(){
+// Close popup by clicking outside
+document.addEventListener("click", function(event){
 
-    trackPopup.style.display = "none";
+    const popup = document.getElementById("trackPopup");
 
-});
+    if(
+        popup &&
+        event.target === popup
+    ){
 
-
-window.addEventListener("click", function(event){
-
-    if(event.target === trackPopup){
-
-        trackPopup.style.display = "none";
+        closeTrackPopup();
 
     }
 

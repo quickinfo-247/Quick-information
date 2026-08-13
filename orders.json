@@ -4,5 +4,8 @@
   },
   "QI1002": {
     "status": "Preparing"
-  }
+  },
+  "QI1003":{
+    "status": "Out of Delivery" 
+ }
 }

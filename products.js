@@ -140,7 +140,7 @@ stock:"Available"
 id:14,
 name:"PVC Box 4/4",
 category:"CCTV",
-price:22,
+price:25,
 oldPrice:30,
 image:"images/44box.jpg",
 description:"Best PVC Box for CCTV installation.",

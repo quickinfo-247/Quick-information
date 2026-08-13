@@ -25,8 +25,17 @@
     </div>
 
     <div class="header-buttons">
-        <button id="cartBtn">🛒 Cart (<span id="cartCount">0</span>)</button>
-    </div>
+
+    <button id="trackBtn" class="track-btn">
+        📦 Track
+    </button>
+
+    <button id="cartBtn">
+        🛒 Cart (<span id="cartCount">0</span>)
+    </button>
+
+</div>
+
 </header>
 
 <section class="address">
@@ -47,29 +56,6 @@
 </section>
 
 
-
-<section class="tracking-section">
-
-    <h2>📦 Track Your Order</h2>
-
-    <div class="tracking-box">
-
-        <input
-            type="text"
-            id="orderIdInput"
-            placeholder="Enter Order ID e.g. QI1001"
-        >
-
-        <button onclick="trackOrder()">
-            🔎 Track Order
-        </button>
-
-    </div>
-
-    <div id="trackingResult"></div>
-
-</section>
-
 <section id="productContainer" class="product-container">
 </section>
 
@@ -86,6 +72,39 @@
 <h3>Total : ₹<span id="cartTotal">0</span></h3>
 
 <button id="whatsappOrder">💬 Order on WhatsApp</button>
+
+</div>
+
+<!-- Track Order Popup -->
+
+<div id="trackPopup" class="track-popup">
+
+    <div class="track-popup-content">
+
+        <span id="closeTrackPopup" class="close-track">
+            &times;
+        </span>
+
+        <h2>📦 Track Your Order</h2>
+
+        <p>Enter your Order ID</p>
+
+        <input
+            type="text"
+            id="orderIdInput"
+            placeholder="Example: QI1001"
+        >
+
+        <button
+            class="track-search-btn"
+            onclick="trackOrder()"
+        >
+            🔎 Track Order
+        </button>
+
+        <div id="trackingResult"></div>
+
+    </div>
 
 </div>
 

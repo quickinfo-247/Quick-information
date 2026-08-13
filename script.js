@@ -1,304 +1,623 @@
+// ==========================================
+// QUICK INFORMATION - MAIN SCRIPT
+// ==========================================
+
+
+// ==========================================
+// CART
+// ==========================================
+
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const productContainer = document.getElementById("productContainer");
-const cartCount = document.getElementById("cartCount");
-const cartItems = document.getElementById("cartItems");
-const cartTotal = document.getElementById("cartTotal");
+const productContainer =
+    document.getElementById("productContainer");
 
+const cartCount =
+    document.getElementById("cartCount");
+
+const cartItems =
+    document.getElementById("cartItems");
+
+const cartTotal =
+    document.getElementById("cartTotal");
+
+
+// ==========================================
+// DISPLAY PRODUCTS
+// ==========================================
 
 function displayProducts(list){
 
-productContainer.innerHTML="";
+    if(!productContainer) return;
 
-list.forEach(product=>{
+    productContainer.innerHTML = "";
 
-productContainer.innerHTML += `
+    list.forEach(product => {
 
-<div class="product-card">
+        const stockAvailable =
+            product.stock === "Available" ||
+            product.stock === true ||
+            product.stock === undefined;
 
-<img src="${product.image}"
-onclick="openImage('${product.image}')"
-onerror="this.src='images/no-image.png'">
+        productContainer.innerHTML += `
 
-<h3>${product.name}</h3>
+        <div class="product-card">
 
-<button class="desc-btn" onclick="toggleDesc(${product.id})">
-ℹ Description
-</button>
+            <img
+                src="${product.image}"
+                alt="${product.name}"
+                onclick="openImage('${product.image}')"
+                onerror="this.src='images/no-image.png'"
+            >
 
-<p id="desc-${product.id}" class="description" style="display:none;">
-${product.description}
-</p>
+            <h3>${product.name}</h3>
 
-<p>
-${product.oldPrice ? `<span class="old-price">₹${product.oldPrice}</span>` : ""}
-<span class="price">₹${product.price}</span>
-</p>
+            <button
+                class="desc-btn"
+                onclick="toggleDesc(${product.id})">
+                ℹ Description
+            </button>
+
+            <p
+                id="desc-${product.id}"
+                class="description"
+                style="display:none;">
+                ${product.description || "No description available."}
+            </p>
+
+            <p>
+
+                ${
+                    product.oldPrice
+                    ?
+                    `<span class="old-price">
+                        ₹${product.oldPrice}
+                    </span>`
+                    :
+                    ""
+                }
+
+                <span class="price">
+                    ₹${product.price}
+                </span>
+
+            </p>
 
 
-<p class="${product.stock==="Available" ? "stock" : "out-stock"}">
-${product.stock==="Available" ? "✓ Available" : "✕ Out of Stock"}
-</p>
+            ${
+                stockAvailable
+                ?
 
-${product.stock === "Available"
-? `<button onclick="addToCart(${product.id})">
-Add to Cart
-</button>`
-: `<button class="disabled-btn" disabled>
-Out of Stock
-</button>`
+                `<p class="stock">
+                    ✓ Available
+                </p>
+
+                <button
+                    onclick="addToCart(${product.id})">
+                    🛒 Add to Cart
+                </button>`
+
+                :
+
+                `<p class="out-stock">
+                    ✕ Out of Stock
+                </p>
+
+                <button
+                    class="disabled-btn"
+                    disabled>
+                    Out of Stock
+                </button>`
+            }
+
+        </div>
+
+        `;
+
+    });
+
 }
 
-</div>
 
-`;
-});
-
-}
-
+// ==========================================
+// ADD TO CART
+// ==========================================
 
 function addToCart(id){
 
-let product = products.find(p=>p.id===id);
+    const product =
+        products.find(p => p.id === id);
 
-if(product.stock !== "Available"){
-    alert("This product is currently out of stock.");
-    return;
+    if(!product) return;
+
+
+    const stockAvailable =
+        product.stock === "Available" ||
+        product.stock === true ||
+        product.stock === undefined;
+
+
+    if(!stockAvailable){
+
+        alert("This product is currently out of stock.");
+
+        return;
+
+    }
+
+
+    const existing =
+        cart.find(item => item.id === id);
+
+
+    if(existing){
+
+        existing.qty++;
+
+    }
+
+    else{
+
+        cart.push({
+
+            ...product,
+
+            qty: 1
+
+        });
+
+    }
+
+
+    saveCart();
+
 }
 
-let item = cart.find(p=>p.id===id);
 
-
-if(item){
-
-item.qty++;
-
-}else{
-
-cart.push({
-...product,
-qty:1
-});
-
-}
-
-saveCart();
-
-}
-
-
+// ==========================================
+// SAVE CART
+// ==========================================
 
 function saveCart(){
 
-localStorage.setItem("cart",JSON.stringify(cart));
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
 
-updateCart();
+    updateCart();
 
 }
 
 
+// ==========================================
+// UPDATE CART
+// ==========================================
 
 function updateCart(){
 
-cartCount.innerText = cart.reduce((a,b)=>a+b.qty,0);
-
-cartItems.innerHTML="";
-
-let total=0;
+    if(!cartCount || !cartItems || !cartTotal){
+        return;
+    }
 
 
-cart.forEach(item=>{
+    let count = 0;
 
-total += item.price * item.qty;
-
-
-cartItems.innerHTML +=`
-
-<div class="cart-item">
-
-<img src="${item.image}">
-
-<div>
-${item.name}<br>
-₹${item.price} × ${item.qty}
-
-<br>
-
-<button onclick="changeQty(${item.id},-1)">-</button>
-
-<button onclick="changeQty(${item.id},1)">+</button>
-
-<button onclick="removeItem(${item.id})">
-Delete
-</button>
-
-</div>
-
-</div>
-
-`;
-
-});
+    let total = 0;
 
 
-cartTotal.innerText=total;
+    cartItems.innerHTML = "";
+
+
+    cart.forEach(item => {
+
+        count += item.qty;
+
+        total +=
+            item.price * item.qty;
+
+
+        cartItems.innerHTML += `
+
+        <div class="cart-item">
+
+            <div class="cart-top">
+
+                <img
+                    src="${item.image}"
+                    class="cart-image"
+                    onerror="this.src='images/no-image.png'"
+                >
+
+                <div class="cart-info">
+
+                    <b>
+                        ${item.name}
+                    </b>
+
+                    <p>
+                        ₹${item.price}
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="qty-box">
+
+                <button
+                    onclick="changeQty(${item.id},-1)">
+                    −
+                </button>
+
+                <span>
+                    ${item.qty}
+                </span>
+
+                <button
+                    onclick="changeQty(${item.id},1)">
+                    +
+                </button>
+
+            </div>
+
+
+            <p>
+                <b>
+                    Subtotal :
+                    ₹${item.price * item.qty}
+                </b>
+            </p>
+
+
+            <button
+                onclick="removeItem(${item.id})">
+                🗑 Delete
+            </button>
+
+            <hr>
+
+        </div>
+
+        `;
+
+    });
+
+
+    cartCount.innerText = count;
+
+    cartTotal.innerText = total;
 
 }
 
 
+// ==========================================
+// CHANGE QUANTITY
+// ==========================================
 
 function changeQty(id,value){
 
-let item=cart.find(p=>p.id===id);
+    const item =
+        cart.find(p => p.id === id);
 
-item.qty += value;
+
+    if(!item) return;
 
 
-if(item.qty<=0){
+    item.qty += value;
 
-removeItem(id);
+
+    if(item.qty <= 0){
+
+        removeItem(id);
+
+        return;
+
+    }
+
+
+    saveCart();
 
 }
 
-else{
 
-saveCart();
-
-}
-
-}
-
-
+// ==========================================
+// REMOVE CART ITEM
+// ==========================================
 
 function removeItem(id){
 
-cart = cart.filter(p=>p.id!==id);
+    cart =
+        cart.filter(p => p.id !== id);
 
-saveCart();
-
-}
-
-
-
-document.getElementById("cartBtn").onclick=function(){
-
-let box=document.getElementById("cartPopup");
-
-box.style.display =
-box.style.display==="block" ? "none":"block";
+    saveCart();
 
 }
 
 
+// ==========================================
+// CART BUTTON
+// ==========================================
 
-document.getElementById("searchBox").onkeyup=function(){
-
-let value=this.value.toLowerCase();
-
-let result=products.filter(p=>
-p.name.toLowerCase().includes(value)
-);
-
-displayProducts(result);
-
-}
+const cartBtn =
+    document.getElementById("cartBtn");
 
 
+if(cartBtn){
 
-document.querySelectorAll(".category-area button")
-.forEach(btn=>{
+    cartBtn.addEventListener(
+        "click",
+        function(){
 
-btn.onclick=function(){
-
-let cat=this.dataset.category;
-
-
-if(cat==="All"){
-
-displayProducts(products);
-
-}
-
-else{
-
-displayProducts(
-products.filter(p=>p.category===cat)
-);
-
-}
-
-}
-
-});
+            const box =
+                document.getElementById("cartPopup");
 
 
-
-document.getElementById("whatsappOrder")
-.onclick=function(){
-
-let message="New Order%0A%0A";
-
-cart.forEach(item=>{
-
-message += 
-`${item.name} Qty:${item.qty} Price:${item.price}%0A`;
-
-});
+            if(!box) return;
 
 
-message += `%0ATotal ₹${cartTotal.innerText}`;
+            if(box.style.display === "block"){
 
+                box.style.display = "none";
 
-window.open(
-"https://wa.me/918509727933?text="+message
-);
+            }
+
+            else{
+
+                box.style.display = "block";
+
+            }
+
+        }
+    );
 
 }
 
 
-
-
-
-displayProducts(products);
-
-updateCart();
-
-document.getElementById("closeCart").onclick=function(){
-
-document.getElementById("cartPopup").style.display="none";
-
-}
+// ==========================================
+// CLOSE CART
+// ==========================================
 
 function closeCart(){
 
-document.getElementById("cartPopup").style.display="none";
+    const box =
+        document.getElementById("cartPopup");
+
+
+    if(box){
+
+        box.style.display = "none";
+
+    }
 
 }
+
+
+// ==========================================
+// SEARCH
+// ==========================================
+
+const searchBox =
+    document.getElementById("searchBox");
+
+
+if(searchBox){
+
+    searchBox.addEventListener(
+        "keyup",
+        function(){
+
+            const value =
+                this.value
+                .toLowerCase()
+                .trim();
+
+
+            const result =
+                products.filter(product => {
+
+                    return product.name
+                        .toLowerCase()
+                        .includes(value);
+
+                });
+
+
+            displayProducts(result);
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// CATEGORY
+// ==========================================
+
+document
+.querySelectorAll(".category-area button")
+.forEach(button => {
+
+    button.addEventListener(
+        "click",
+        function(){
+
+            const category =
+                this.dataset.category;
+
+
+            if(category === "All"){
+
+                displayProducts(products);
+
+            }
+
+            else{
+
+                displayProducts(
+
+                    products.filter(
+                        product =>
+                        product.category === category
+                    )
+
+                );
+
+            }
+
+        }
+    );
+
+});
+
+
+// ==========================================
+// WHATSAPP CART ORDER
+// ==========================================
+
+const whatsappOrder =
+    document.getElementById("whatsappOrder");
+
+
+if(whatsappOrder){
+
+    whatsappOrder.addEventListener(
+        "click",
+        function(){
+
+            if(cart.length === 0){
+
+                alert("Your cart is empty.");
+
+                return;
+
+            }
+
+
+            let message =
+                "Hello, I want to order:\n\n";
+
+
+            let total = 0;
+
+
+            cart.forEach(item => {
+
+                const subtotal =
+                    item.price * item.qty;
+
+
+                message +=
+`${item.name}
+Qty : ${item.qty}
+Price : ₹${subtotal}
+
+`;
+
+
+                total += subtotal;
+
+            });
+
+
+            message +=
+                `Total : ₹${total}`;
+
+
+            window.open(
+
+                "https://wa.me/918509727933?text=" +
+                encodeURIComponent(message),
+
+                "_blank"
+
+            );
+
+        }
+    );
+
+}
+
+
+// ==========================================
+// IMAGE POPUP
+// ==========================================
 
 function openImage(src){
-    document.getElementById("popupImage").src = src;
-    document.getElementById("imagePopup").style.display = "flex";
+
+    const image =
+        document.getElementById("popupImage");
+
+    const popup =
+        document.getElementById("imagePopup");
+
+
+    if(image){
+
+        image.src = src;
+
+    }
+
+
+    if(popup){
+
+        popup.style.display = "flex";
+
+    }
+
 }
 
+
 function closeImage(){
-    document.getElementById("imagePopup").style.display = "none";
+
+    const popup =
+        document.getElementById("imagePopup");
+
+
+    if(popup){
+
+        popup.style.display = "none";
+
+    }
+
 }
+
+
+// ==========================================
+// DESCRIPTION
+// ==========================================
 
 function toggleDesc(id){
 
-const desc = document.getElementById("desc-" + id);
+    const desc =
+        document.getElementById(
+            "desc-" + id
+        );
 
-if(desc.style.display==="none"){
-    desc.style.display="block";
-}else{
-    desc.style.display="none";
+
+    if(!desc) return;
+
+
+    if(desc.style.display === "none"){
+
+        desc.style.display = "block";
+
+    }
+
+    else{
+
+        desc.style.display = "none";
+
+    }
+
 }
 
-}
 
-// ===============================
-// GitHub Order Tracking
-// ===============================
+// ==========================================
+// GITHUB ORDER TRACKING
+// ==========================================
 
 async function trackOrder(){
 
@@ -308,45 +627,82 @@ async function trackOrder(){
     const result =
         document.getElementById("trackingResult");
 
+
+    if(!input || !result){
+
+        alert(
+            "Tracking system is not connected correctly."
+        );
+
+        return;
+
+    }
+
+
     const orderId =
-        input.value.trim().toUpperCase();
+        input.value
+        .trim()
+        .toUpperCase();
+
 
     if(orderId === ""){
 
         result.innerHTML = `
+
             <div class="tracking-error">
+
                 ⚠️ Please enter your Order ID.
+
             </div>
+
         `;
 
         return;
+
     }
 
+
     result.innerHTML = `
+
         <div class="tracking-loading">
+
             🔄 Checking your order...
+
         </div>
+
     `;
+
 
     try{
 
-        const response = await fetch(
-            "orders.json?time=" + Date.now()
-        );
+        const response =
+            await fetch(
+                "orders.json?time=" +
+                Date.now()
+            );
+
 
         if(!response.ok){
 
-            throw new Error("Orders file not found");
+            throw new Error(
+                "orders.json not found"
+            );
 
         }
 
-        const orders = await response.json();
 
-        const order = orders[orderId];
+        const orders =
+            await response.json();
+
+
+        const order =
+            orders[orderId];
+
 
         if(!order){
 
             result.innerHTML = `
+
                 <div class="tracking-error">
 
                     ❌ Order not found.
@@ -356,29 +712,46 @@ async function trackOrder(){
                     Please check your Order ID.
 
                 </div>
+
             `;
 
             return;
+
         }
 
-        showOrderStatus(orderId, order.status);
+
+        showOrderStatus(
+
+            orderId,
+
+            order.status
+
+        );
 
     }
 
+
     catch(error){
 
-        console.error(error);
+        console.error(
+            "Tracking Error:",
+            error
+        );
+
 
         result.innerHTML = `
+
             <div class="tracking-error">
 
                 ⚠️ Unable to check order.
 
-                <br>
+                <br><br>
 
-                Please try again later.
+                Please check your internet
+                connection and try again.
 
             </div>
+
         `;
 
     }
@@ -386,65 +759,87 @@ async function trackOrder(){
 }
 
 
-// ===============================
-// Show Order Status
-// ===============================
+// ==========================================
+// SHOW ORDER STATUS
+// ==========================================
 
-function showOrderStatus(orderId, status){
+function showOrderStatus(
+    orderId,
+    status
+){
 
     const result =
-        document.getElementById("trackingResult");
+        document.getElementById(
+            "trackingResult"
+        );
+
+
+    if(!result) return;
+
 
     let icon = "📦";
-    let statusClass = "status-received";
+
+    let statusClass =
+        "status-received";
+
 
     if(status === "Order Received"){
 
         icon = "🟡";
-        statusClass = "status-received";
+
+        statusClass =
+            "status-received";
 
     }
+
 
     else if(status === "Preparing"){
 
         icon = "🔵";
-        statusClass = "status-preparing";
+
+        statusClass =
+            "status-preparing";
 
     }
+
 
     else if(status === "Out for Delivery"){
 
         icon = "🟠";
-        statusClass = "status-delivery";
+
+        statusClass =
+            "status-delivery";
 
     }
+
 
     else if(status === "Delivered"){
 
         icon = "🟢";
-        statusClass = "status-delivered";
+
+        statusClass =
+            "status-delivered";
 
     }
+
 
     result.innerHTML = `
 
         <div class="tracking-result">
 
-            <h3>Order ID</h3>
+            <h3>
+                Order ID
+            </h3>
 
             <p class="order-id">
                 ${orderId}
             </p>
 
-            <div class="order-status ${statusClass}">
+            <div
+                class="order-status ${statusClass}">
 
-                <span class="status-icon">
-                    ${icon}
-                </span>
-
-                <span>
-                    ${status}
-                </span>
+                ${icon}
+                ${status}
 
             </div>
 
@@ -454,55 +849,100 @@ function showOrderStatus(orderId, status){
 
 }
 
-// ===============================
-// Track Order Popup
-// ===============================
+
+// ==========================================
+// TRACK POPUP
+// ==========================================
 
 function openTrackPopup(){
 
-    const popup = document.getElementById("trackPopup");
+    const popup =
+        document.getElementById(
+            "trackPopup"
+        );
+
 
     if(popup){
+
         popup.style.display = "flex";
+
     }
 
 }
+
 
 function closeTrackPopup(){
 
-    const popup = document.getElementById("trackPopup");
+    const popup =
+        document.getElementById(
+            "trackPopup"
+        );
+
 
     if(popup){
+
         popup.style.display = "none";
+
     }
 
 }
 
 
-// Track button
-document.addEventListener("click", function(event){
+// ==========================================
+// TRACK BUTTON
+// ==========================================
 
-    if(event.target.closest("#trackBtn")){
+document.addEventListener(
+    "click",
+    function(event){
 
-        openTrackPopup();
+        const button =
+            event.target.closest(
+                "#trackBtn"
+            );
 
-    }
 
-});
+        if(button){
 
+            openTrackPopup();
 
-// Close popup by clicking outside
-document.addEventListener("click", function(event){
-
-    const popup = document.getElementById("trackPopup");
-
-    if(
-        popup &&
-        event.target === popup
-    ){
-
-        closeTrackPopup();
+        }
 
     }
+);
 
-});
+
+// ==========================================
+// CLOSE TRACK POPUP
+// ==========================================
+
+document.addEventListener(
+    "click",
+    function(event){
+
+        const popup =
+            document.getElementById(
+                "trackPopup"
+            );
+
+
+        if(
+            popup &&
+            event.target === popup
+        ){
+
+            closeTrackPopup();
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// START WEBSITE
+// ==========================================
+
+displayProducts(products);
+
+updateCart();

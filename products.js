@@ -269,6 +269,6 @@ price:39,
 image:"images/sl01.jpg",
 description:"Switch for on off. Inbuilt Battery. 2 meter wire length. Good quality.",
 stock:"Available"
-}
+},
 
 ];

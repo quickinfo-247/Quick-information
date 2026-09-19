@@ -260,6 +260,14 @@ price:149,
 image:"images/mf.jpg",
 description:"Handy mini fan 1/2 hours battery backup in low speed.",
 stock:"Available"
-}
+},
+
+id:26,
+name:"String LED Light 2M",
+category:"Lights",
+price:39,
+image:"images/sl01.jpg",
+description:"Switch for on off. Inbuilt Battery. 2 meter wire length. Good quality.",
+stock:"Available"
 
 ];

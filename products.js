@@ -4,40 +4,40 @@ const products = [
 id:1,
 name:"9W Ultra LED Bulb",
 category:"Lights",
-price:50,
-oldPrice:70,
+price:45,
+oldPrice:85,
 image:"images/bulb9w.jpg",
-description:"Energy saving LED bulb. Low power consumption.",
+description:"Energy saving LED bulb. Low power consumption. 1 year guarantee.",
 stock:"Available"
 },
 
 {
 id:2,
-name:"Philips AC DC Bulb",
+name:"Philips AC DC Bulb 9 Watt",
 category:"Lights",
-price:300,
+price:350,
 image:"images/philips.jpg",
-description:"Philips emergency AC DC LED bulb.",
-stock:"Out of Stock"
+description:"Philips emergency 9 Watt AC DC LED bulb.1 year guarantee.",
+stock:"Available"
 },
 
 {
 id:3,
 name:"Oreva AC DC Bulb",
 category:"Lights",
-price:250,
+price:280,
 image:"images/oreva.jpg",
-description:"Rechargeable emergency LED bulb.",
-stock:"Out of Stock"
+description:"Rechargeable emergency LED bulb 9 watt. 1 year guarantee.",
+stock:"Available"
 },
 
 {
 id:4,
-name:"555 Motor",
+name:"555 DC Motor",
 category:"Electronics",
 price:110,
 image:"images/555motor.jpg",
-description:"High quality small DC motor.",
+description:"High quality small DC motor. Operating voltage = 12-15Volt DC",
 stock:"Available"
 },
 
@@ -45,9 +45,9 @@ stock:"Available"
 id:5,
 name:"4 Channel DVR",
 category:"CCTV",
-price:2950,
+price:3080,
 image:"images/dvr4ch.jpg",
-description:"4 channel DVR for CCTV camera setup.",
+description:"4 channel DVR for CCTV camera Setup. 1 year warranty.",
 stock:"Available"
 },
 
@@ -55,7 +55,7 @@ stock:"Available"
 id:6,
 name:"19 Inch Monitor",
 category:"Electronics",
-price:2650,
+price:2850,
 image:"images/monitor19.jpg",
 description:"HD display monitor for CCTV system.",
 stock:"Available"
@@ -63,11 +63,11 @@ stock:"Available"
 
 {
 id:7,
-name:"Standerd CCTV cable",
+name:"Standerd CCTV cable 90M",
 category:"CCTV",
-price:1350,
+price:1450,
 image:"images/cable3plus1.jpg",
-description:"Standard quality wire for CCTV camera.",
+description:"Standard quality wire for CCTV camera. 90M long.",
 stock:"Available"
 },
 
@@ -75,18 +75,17 @@ stock:"Available"
 id:8,
 name:"12v 2a adaptor",
 category:"Electronics",
-price:170,
+price:180,
 image:"images/adapter12v2a.jpg",
-description:"High quality adaptor for CCTV camera and power supply.",
+description:"High quality adaptor for CCTV camera and DC Power supply.",
 stock:"Available"
 },
 
 {
 id:9,
-name:"12V 5A SMPS",
+name:"12Volt 5Amp CCTV SMPS",
 category:"CCTV",
-price:580,
-oldPrice:650,
+price:680,
 image:"images/smps12v5a.jpg",
 description:"High quality SMPS for CCTV camera.",
 stock:"Available"
@@ -96,19 +95,19 @@ stock:"Available"
 id:10,
 name:"20W LED Tube Light",
 category:"Lights",
-price:110,
-oldPrice:150,
+price:120,
+oldPrice:160,
 image:"images/t5tube.jpg",
-description:"Energy saving LED Tube Light. Low power consumption. 4 feets",
-stock:"Out of Stock"
+description:"Energy saving LED Tube Light. Low power consumption. 4 feets. Non branded.",
+stock:"Available"
 },
 
 {
 id:11,
 name:"BNC connector",
 category:"CCTV",
-price:18,
-oldPrice:25,
+price:35,
+oldPrice:45,
 image:"images/wirebnc.jpg",
 description:"Good BNC connector for CCTV camera.",
 stock:"Available"
@@ -118,8 +117,8 @@ stock:"Available"
 id:12,
 name:"DC Male Connector",
 category:"CCTV",
-price:12,
-oldPrice:17,
+price:14,
+oldPrice:20,
 image:"images/dcmale.jpg",
 description:"DC Male Connector for CCTV camera power connection.",
 stock:"Available"
@@ -129,8 +128,8 @@ stock:"Available"
 id:13,
 name:"DC Female Connector",
 category:"CCTV",
-price:18,
-oldPrice:25,
+price:19,
+oldPrice:28,
 image:"images/dcfemale.jpg",
 description:"DC female connector for using power distribution and connection purpose.",
 stock:"Available"
@@ -162,8 +161,8 @@ stock:"Available"
 id:16,
 name:"CR 1220 Pin Type Battery",
 category:"CCTV",
-price:60,
-oldPrice:80,
+price:65,
+oldPrice:85,
 image:"images/cr1220pin.jpg",
 description:"Best for CCTV DVR motherboard.",
 stock:"Available"
